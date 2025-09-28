@@ -1,3 +1,24 @@
 {
-  "recommendations": ["nrwl.angular-console", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "nrwl.angular-console",
+    "esbenp.prettier-vscode",
+    "bierner.emojisense",
+    "coderabbit.coderabbit-vscode",
+    "joshbolduc.commitlint",
+    "vivaxy.vscode-conventional-commits",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "tamasfe.even-better-toml",
+    "bierner.github-markdown-preview",
+    "github.vscode-pull-request-github",
+    "visualstudioexptteam.vscodeintellicode",
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "rpinski.shebang-snippets",
+    "foxundermoon.shell-format",
+    "gruntfuggly.todo-tree",
+    "eliostruyf.vscode-typescript-exportallmodules",
+    "redhat.vscode-yaml"
+  ]
 }
