@@ -3,7 +3,7 @@
   "namedInputs": {
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": ["default"],
-    "sharedGlobals": []
+    "sharedGlobals": ["{workspaceRoot}/LICENSE"]
   },
   "plugins": [
     {
@@ -20,5 +20,43 @@
         }
       }
     }
-  ]
+  ],
+  "generators": {
+    "@nx/plugin:plugin": {
+      "linter": "none",
+      "unitTestRunner": "none",
+      "compiler": "tsc",
+      "e2eTestRunner": "none",
+      "publishable": false,
+      "skipLintChecks": true
+    },
+    "@nx/plugin:generator": {
+      "skipLintChecks": true,
+      "unitTestRunner": "none"
+    },
+    "@nx/plugin:executor": {
+      "skipLintChecks": true,
+      "unitTestRunner": "none"
+    },
+    "@nx/js:library": {
+      "bundler": "tsc",
+      "linter": "none",
+      "publishable": false,
+      "unitTestRunner": "none",
+      "includeBabelRc": false,
+      "js": false,
+      "minial": true,
+      "strict": true
+    }
+  },
+  "targetDefaults": {
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "build": {
+      "dependsOn": ["install"]
+    }
+  }
 }
