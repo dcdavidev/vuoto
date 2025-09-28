@@ -1,0 +1,32 @@
+# Top-level EditorConfig
+root = true
+
+# Global defaults for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+max_line_length = 80
+
+# Markdown fix
+[*.md]
+trim_trailing_whitespace = false
+
+# Toml
+[*.toml]
+max_line_length = 100
+
+# Rust
+[*.rs]
+max_line_length = 100
+indent_size = 4
+
+# Prisma Schema
+[*.prisma]
+max_line_length = 100
+
+[Makefile]
+indent_style = tab
