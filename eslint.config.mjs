@@ -10,6 +10,7 @@ import tseslint from 'typescript-eslint';
 import js from '@eslint/js';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
+import packageJson from 'eslint-plugin-package-json';
 /**
  * Js/Ts imports/exports rules
  * @typedef {import("eslint").Linter.RulesRecord}
@@ -120,15 +121,15 @@ export default defineConfig([
       'out-tsc/',
       '**/out-tsc/**',
     ],
-    'Ignore compiled output'
+    'Ignore compiled output',
   ),
   globalIgnores(
     ['.github/instructions/', '.cursor/rules/'],
-    'Ignore instructions for AI agents'
+    'Ignore instructions for AI agents',
   ),
   globalIgnores(
     ['**/vite.config.*.timestamp*', '**/vitest.config.*.timestamp*'],
-    'Ignore timestamps'
+    'Ignore timestamps',
   ),
   globalIgnores(['*.log', '**/*.log'], 'Ignore logs'),
   globalIgnores(
@@ -144,7 +145,7 @@ export default defineConfig([
       '**/bun.lock',
       '**/bun.lockb',
     ],
-    'Ignore lock files'
+    'Ignore lock files',
   ),
 
   // --- Core: JS + TS ---
@@ -206,6 +207,7 @@ export default defineConfig([
   },
 
   // --- JSON / JSONC / JSON5 ---
+  packageJson.configs.recommended,
   {
     files: ['**/*.json'],
     plugins: { json },

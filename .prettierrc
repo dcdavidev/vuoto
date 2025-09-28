@@ -3,7 +3,7 @@
     "prettier-plugin-sh",
     "prettier-plugin-toml",
     "prettier-plugin-ini",
-    "prettier-plugin-packagejson"
+    "prettier-plugin-properties"
   ],
 
   "trailingComma": "es5",

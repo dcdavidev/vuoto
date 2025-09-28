@@ -1,9 +1,16 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": ["{projectRoot}/**/*", "sharedGlobals"],
-    "production": ["default"],
-    "sharedGlobals": ["{workspaceRoot}/LICENSE"]
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": [
+      "{workspaceRoot}/LICENSE"
+    ]
   },
   "plugins": [
     {
@@ -45,18 +52,25 @@
       "unitTestRunner": "none",
       "includeBabelRc": false,
       "js": false,
-      "minial": true,
+      "minimal": true,
       "strict": true
     }
   },
   "targetDefaults": {
     "@nx/js:tsc": {
       "cache": true,
-      "dependsOn": ["^build"],
-      "inputs": ["production", "^production"]
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
     },
     "build": {
-      "dependsOn": ["install"]
+      "dependsOn": [
+        "install"
+      ]
     }
   }
 }
