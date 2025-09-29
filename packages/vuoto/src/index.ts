@@ -1,3 +1,6 @@
+export * from './actions/expand-patterns.js';
+export * from './actions/init-config.js';
+export * from './actions/run-normalize.js';
 export * from './consts.js';
 export * from './helpers/collect-gitignores.js';
 export * from './helpers/instance-of-node-error.js';

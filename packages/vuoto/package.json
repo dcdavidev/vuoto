@@ -14,6 +14,12 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
+    "./actions": {
+      "types": "./dist/actions/index.d.ts",
+      "import": "./dist/actions/index.js",
+      "require": "./dist/actions/index.cjs",
+      "default": "./dist/actions/index.js"
+    },
     "./helpers": {
       "types": "./dist/helpers/index.d.ts",
       "import": "./dist/helpers/index.js",

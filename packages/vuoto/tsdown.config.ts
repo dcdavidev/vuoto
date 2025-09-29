@@ -2,6 +2,7 @@ import { defineConfig } from 'tsdown';
 
 export default defineConfig({
   entry: [
+    'src/actions/index.ts',
     'src/helpers/index.ts',
     'src/normalizers/index.ts',
     'src/index.ts',
