@@ -14,5 +14,5 @@
  * ```
  */
 export function normalizeVerticalTab(input: string): string {
-  return input.replace(/\v/g, '');
+  return input.replaceAll('\v', '');
 }

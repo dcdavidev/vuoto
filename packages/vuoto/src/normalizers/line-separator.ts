@@ -14,5 +14,5 @@
  * ```
  */
 export function normalizeLineSeparator(input: string): string {
-  return input.replace(/\u2028/g, '\n');
+  return input.replaceAll('\u2028', '\n');
 }

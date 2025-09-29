@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeEmSpace(input: string): string {
-  return input.replace(/\u2003/g, ' ');
+  return input.replaceAll('\u2003', ' ');
 }

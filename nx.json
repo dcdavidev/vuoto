@@ -56,7 +56,7 @@
       "inputs": ["production", "^production"]
     },
     "build": {
-      "dependsOn": ["install"]
+      "dependsOn": ["install", "^build"]
     }
   },
   "release": {

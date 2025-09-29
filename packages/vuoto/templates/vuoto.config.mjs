@@ -5,7 +5,7 @@
 /** @type {Config} */
 const config = {
   // Exclude build artifacts
-  exclude: ['dist/**'],
+  exclude: ['**/dist/**'],
 };
 
 export default config;

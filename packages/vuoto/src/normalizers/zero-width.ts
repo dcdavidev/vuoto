@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeZeroWidth(input: string): string {
-  return input.replace(/[\u200B\u200C\u200D]/g, '');
+  return input.replaceAll(/[\u200B\u200C\u200D]/g, '');
 }

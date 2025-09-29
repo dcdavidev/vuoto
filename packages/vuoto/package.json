@@ -1,11 +1,9 @@
 {
   "name": "@dcdavidev/vuoto",
+  "description": "Whitespace normalizer core for the vuoto ecosystem, ensuring clean and consistent source files.",
   "version": "0.0.1",
   "private": true,
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -45,13 +43,26 @@
       "default": "./dist/vuoto.js"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "vuoto": "./dist/vuoto.js"
+  },
   "files": [
     "dist",
     "templates",
     "LICENSE"
   ],
-  "bin": {
-    "vuoto": "./dist/vuoto.js"
+  "dependencies": {
+    "commander": "^14.0.1",
+    "fast-glob": "^3.3.3",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsdown": "^0.15.5",
+    "typescript": "^5.9.2"
   },
   "nx": {
     "name": "vuoto",
@@ -80,15 +91,5 @@
         }
       }
     }
-  },
-  "dependencies": {
-    "commander": "^14.0.1",
-    "fast-glob": "^3.3.3",
-    "tslib": "^2.3.0"
-  },
-  "devDependencies": {
-    "@types/node": "^24.5.2",
-    "tsdown": "^0.15.5",
-    "typescript": "^5.9.2"
   }
 }

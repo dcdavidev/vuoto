@@ -13,8 +13,8 @@
  * ```
  */
 export function normalizeMiscSpaces(input: string): string {
-  return input.replace(
+  return input.replaceAll(
     /[\u1680\u180E\u2000\u2001\u2004-\u200A\u205F\u2060\u3000]/g,
-    ' ',
+    ' '
   );
 }

@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeEnSpace(input: string): string {
-  return input.replace(/\u2002/g, ' ');
+  return input.replaceAll('\u2002', ' ');
 }

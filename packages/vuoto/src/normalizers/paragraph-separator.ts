@@ -15,5 +15,5 @@
  * ```
  */
 export function normalizeParagraphSeparator(input: string): string {
-  return input.replace(/\u2029/g, '\n\n');
+  return input.replaceAll('\u2029', '\n\n');
 }

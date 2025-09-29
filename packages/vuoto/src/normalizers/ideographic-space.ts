@@ -14,5 +14,5 @@
  * ```
  */
 export function normalizeIdeographicSpace(input: string): string {
-  return input.replace(/\u3000/g, ' ');
+  return input.replaceAll('\u3000', ' ');
 }

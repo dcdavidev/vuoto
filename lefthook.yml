@@ -16,15 +16,15 @@ pre-commit:
             stage_fixed: true
           - run: npx eslint --fix {staged_files}
             exclude:
-              - "*.sh"
-              - "*.toml"
-              - "*.yaml"
-              - "*.yml"
+              - '*.sh'
+              - '*.toml'
+              - '*.yaml'
+              - '*.yml'
             stage_fixed: true
           - run: npx prettier {staged_files} --write
             glob:
-              - "*.sh"
-              - "*.toml"
-              - "*.yaml"
-              - "*.yml"
+              - '*.sh'
+              - '*.toml'
+              - '*.yaml'
+              - '*.yml'
             stage_fixed: true

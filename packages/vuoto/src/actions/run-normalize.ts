@@ -1,12 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
+
 import fg from 'fast-glob';
 
-import { normalize } from '../normalize.js';
+import { DEFAULT_IGNORES } from '../consts.js';
 import { collectGitignores } from '../helpers/collect-gitignores.js';
 import { resolveConfig } from '../helpers/resolve-config.js';
-import { DEFAULT_IGNORES } from '../consts.js';
+import { normalize } from '../normalize.js';
 
 export type RunNormalizerOptions = {
   patterns: string[];
@@ -55,11 +56,11 @@ export async function runNormalize(
         await fs.writeFile(file, fixed, 'utf8');
         console.log(`👌 fixed ${relPath}`);
       }
-    } else if (source !== fixed) {
-      hadIssues = true;
-      console.log(`💀 ${relPath} has whitespace issues`);
     } else {
-      console.log(`👌 ${relPath} is clean`);
+      if (source !== fixed) {
+        hadIssues = true;
+        console.log(`💀 ${relPath} has whitespace issues`);
+      }
     }
   }
 

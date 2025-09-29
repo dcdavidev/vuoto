@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeNarrowNoBreakSpace(input: string): string {
-  return input.replace(/\u202F/g, ' ');
+  return input.replaceAll('\u202F', ' ');
 }

@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeByteOrderMark(input: string): string {
-  return input.replace(/\uFEFF/g, '');
+  return input.replaceAll('\uFEFF', '');
 }

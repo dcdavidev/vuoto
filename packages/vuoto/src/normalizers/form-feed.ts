@@ -16,5 +16,5 @@
  * ```
  */
 export function normalizeFormFeed(input: string): string {
-  return input.replace(/\f/g, '');
+  return input.replaceAll('\f', '');
 }

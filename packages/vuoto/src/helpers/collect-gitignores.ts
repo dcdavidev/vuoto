@@ -1,4 +1,5 @@
 import path from 'node:path';
+
 import fg from 'fast-glob';
 
 import { readGitignoreFile } from './read-gitignore-file.js';

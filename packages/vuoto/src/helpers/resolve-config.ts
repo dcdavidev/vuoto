@@ -1,6 +1,6 @@
 import { DEFAULT_IGNORES } from '../consts.js';
-import { loadConfig } from './load-config.js';
 import type { Config } from '../types/config.js';
+import { loadConfig } from './load-config.js';
 
 /**
  * Merge built-in ignores with user config.

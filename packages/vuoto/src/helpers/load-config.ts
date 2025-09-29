@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+
 import { VUOTO_CONFIG_PATHS } from '../consts.js';
 import type { Config } from '../types/config.js';
 

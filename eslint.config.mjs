@@ -81,21 +81,21 @@ const rulesImportsExports = {
         ],
 
         // 3. Side-effect imports
-        ['^\\u0000'],
+        [String.raw`^\u0000`],
         // 4. Third-party
-        ['^[^@./]', '^@\\w'],
+        ['^[^@./]', String.raw`^@\w`],
         // 5. React
         ['^react$', '^react-dom$', '^react'],
         // 6. UI libs
         ['^@mui', '^@material-ui', '^@tabler'],
         // 7. Internal + relatives
-        ['^(@dcdavidev)(/.*|$)', '^\\.\\.?/'],
+        ['^(@dcdavidev)(/.*|$)', String.raw`^\.\.?/`],
         // 8. Styles & assets
         [
-          '^.+\\.s?css$',
-          '^.+\\.(png|jpe?g|gif|webp|svg)$',
-          '^.+\\.(mp3|wav|ogg)$',
-          '^.+\\.(mp4|avi|mov)$',
+          String.raw`^.+\.s?css$`,
+          String.raw`^.+\.(png|jpe?g|gif|webp|svg)$`,
+          String.raw`^.+\.(mp3|wav|ogg)$`,
+          String.raw`^.+\.(mp4|avi|mov)$`,
         ],
       ],
     },
@@ -149,8 +149,6 @@ export default defineConfig([
   ),
 
   // --- Core: JS + TS ---
-  ...tseslint.configs.recommended,
-  js.configs.recommended,
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
     languageOptions: {
@@ -159,12 +157,16 @@ export default defineConfig([
       },
     },
     plugins: {
-      unicorn,
       jsdoc,
       prettier: prettierPlugin,
       import: importPlg,
       'simple-import-sort': simpleImportSort,
     },
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.recommended,
+      unicorn.configs.recommended,
+    ],
     rules: {
       ...rulesImportsExports,
 
@@ -225,7 +227,6 @@ export default defineConfig([
   },
 
   // --- JSON / JSONC / JSON5 ---
-  packageJson.configs.recommended,
   {
     files: ['**/*.json'],
     plugins: { json },
@@ -246,6 +247,17 @@ export default defineConfig([
     language: 'json/jsonc',
     extends: ['json/recommended'],
     languageOptions: { parser: jsoncParser },
+  },
+  {
+    files: ['**/package.json'],
+    plugins: { 'package-json': packageJson },
+    language: 'json/json',
+    extends: [packageJson.configs.recommended],
+    languageOptions: { parser: jsoncParser },
+    rules: {
+      'package-json/order-properties': 'error',
+      'package-json/sort-collections': 'error',
+    },
   },
 
   // --- Markdown ---

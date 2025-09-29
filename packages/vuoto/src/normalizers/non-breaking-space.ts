@@ -12,5 +12,5 @@
  * ```
  */
 export function normalizeNonBreakingSpace(input: string): string {
-  return input.replace(/\u00A0/g, ' ');
+  return input.replaceAll('\u00A0', ' ');
 }
