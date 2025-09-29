@@ -234,7 +234,14 @@ export default defineConfig([
     languageOptions: { parser: jsoncParser },
   },
   {
-    files: ['**/*.jsonc', '**/*.json5', '**/tsconfig*.json'],
+    files: ['**/*.json5'],
+    plugins: { json },
+    language: 'json/json5',
+    extends: ['json/recommended'],
+    languageOptions: { parser: jsoncParser },
+  },
+  {
+    files: ['**/*.jsonc', '**/tsconfig*.json', '**/.vscode/**/*.json'],
     plugins: { json },
     language: 'json/jsonc',
     extends: ['json/recommended'],

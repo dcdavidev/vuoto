@@ -1,16 +1,9 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
-    "production": [
-      "default"
-    ],
-    "sharedGlobals": [
-      "{workspaceRoot}/LICENSE"
-    ]
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "production": ["default"],
+    "sharedGlobals": ["{workspaceRoot}/LICENSE"]
   },
   "plugins": [
     {
@@ -59,18 +52,32 @@
   "targetDefaults": {
     "@nx/js:tsc": {
       "cache": true,
-      "dependsOn": [
-        "^build"
-      ],
-      "inputs": [
-        "production",
-        "^production"
-      ]
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     },
     "build": {
-      "dependsOn": [
-        "install"
-      ]
+      "dependsOn": ["install"]
+    }
+  },
+  "release": {
+    "projects": ["packages/vuoto"],
+    "projectsRelationship": "independent",
+    "version": {
+      "conventionalCommits": true,
+      "preVersionCommand": "nx run-many -t build"
+    },
+    "changelog": {
+      "workspaceChangelog": false,
+      "projectChangelogs": {
+        "createRelease": "github",
+        "file": false
+      }
+    },
+    "git": {
+      "commit": true,
+      "stageChanges": true,
+      "tag": true,
+      "push": true
     }
   }
 }
