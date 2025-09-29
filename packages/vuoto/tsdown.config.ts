@@ -2,10 +2,10 @@ import { defineConfig } from 'tsdown';
 
 export default defineConfig({
   entry: [
-    'src/index.ts',
-    'src/config.ts',
-    'src/normalize.ts',
+    'src/helpers/index.ts',
     'src/normalizers/index.ts',
+    'src/index.ts',
+    'src/vuoto.ts',
   ],
   platform: 'node',
   format: ['esm', 'cjs'],

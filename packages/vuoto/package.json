@@ -26,6 +26,12 @@
       "require": "./dist/normalizers/index.cjs",
       "default": "./dist/normalizers/index.js"
     },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.cjs",
+      "default": "./dist/types/index.js"
+    },
     "./vuoto": {
       "types": "./dist/vuoto.d.ts",
       "import": "./dist/vuoto.js",

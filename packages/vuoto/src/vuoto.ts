@@ -8,11 +8,15 @@ import { Command } from 'commander';
 import fg from 'fast-glob';
 
 import pkg from '../package.json' with { type: 'json' };
-import { resolveConfig } from './config.js';
 import { normalize } from './normalize.js';
 import { instanceOfNodeError } from './helpers/instance-of-node-error.js';
 import { collectGitignores } from './helpers/collect-gitignores.js';
-import { DEFAULT_IGNORES } from './consts.js';
+import {
+  DEFAULT_IGNORES,
+  VUOTO_CONFIG_BASENAME,
+  VUOTO_CONFIG_TEMPLATE_EXT,
+} from './consts.js';
+import { resolveConfig } from './helpers/resolve-config.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -28,12 +32,16 @@ program
     '--exclude <globs...>',
     'glob patterns to exclude (like in .gitignore)'
   )
-  .option('--init', 'generate a default vuoto.config.js')
+  .option('--init', `generate a default ${VUOTO_CONFIG_BASENAME}`)
   .action(async (patterns: string[], options) => {
     // init mode: copy template
     if (options.init) {
-      const configPath = path.resolve(process.cwd(), 'vuoto.config.js');
-      const templatePath = path.join(__dirname, '../templates/vuoto.config.js');
+      const configFile = `${VUOTO_CONFIG_BASENAME}.${VUOTO_CONFIG_TEMPLATE_EXT}`;
+      const configPath = path.resolve(process.cwd(), configFile);
+      const templatePath = path.join(
+        __dirname,
+        `../templates/${VUOTO_CONFIG_BASENAME}.${VUOTO_CONFIG_TEMPLATE_EXT}`
+      );
 
       try {
         const content = await fs.readFile(templatePath, 'utf8');
@@ -41,7 +49,7 @@ program
         console.log(`👌 Created ${path.relative(process.cwd(), configPath)}`);
       } catch (err: unknown) {
         if (instanceOfNodeError(err, Error) && err.code === 'EEXIST') {
-          console.error(`🤦‍♂️ vuoto.config.js already exists`);
+          console.error(`🤦‍♂️ ${configFile} already exists`);
         } else {
           throw err;
         }
