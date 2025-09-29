@@ -1,10 +1,7 @@
 {
   "name": "@dcdavidev/vuoto",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
   "description": "Whitespace normalizer core for the vuoto ecosystem, ensuring clean and consistent source files.",
   "type": "module",
   "exports": {
@@ -66,6 +63,9 @@
     "@types/node": "^24.5.2",
     "tsdown": "^0.15.5",
     "typescript": "^5.9.2"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "nx": {
     "name": "vuoto",
