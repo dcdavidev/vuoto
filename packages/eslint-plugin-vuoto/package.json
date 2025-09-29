@@ -1,0 +1,50 @@
+{
+  "name": "eslint-plugin-eslint-plugin-vuoto",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsdown": "^0.15.5"
+  },
+  "peerDependencies": {
+    "eslint": "^9.36.0"
+  },
+  "nx": {
+    "name": "eslint-plugin-vuoto",
+    "targets": {
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsdown",
+          "cwd": "packages/eslint-plugin-vuoto"
+        },
+        "outputs": [
+          "{projectRoot}/dist"
+        ]
+      },
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsdown --watch",
+          "cwd": "packages/eslint-plugin-vuoto"
+        }
+      }
+    }
+  }
+}

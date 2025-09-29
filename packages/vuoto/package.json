@@ -35,12 +35,6 @@
       "import": "./dist/types/index.js",
       "require": "./dist/types/index.cjs",
       "default": "./dist/types/index.js"
-    },
-    "./vuoto": {
-      "types": "./dist/vuoto.d.ts",
-      "import": "./dist/vuoto.js",
-      "require": "./dist/vuoto.cjs",
-      "default": "./dist/vuoto.js"
     }
   },
   "main": "./dist/index.js",
@@ -52,7 +46,8 @@
   "files": [
     "dist",
     "templates",
-    "LICENSE"
+    "LICENSE",
+    "vuoto-ext.png"
   ],
   "dependencies": {
     "commander": "^14.0.1",
@@ -85,12 +80,6 @@
         "options": {
           "command": "tsdown --watch",
           "cwd": "packages/vuoto"
-        }
-      },
-      "install": {
-        "executor": "nx:run-commands",
-        "options": {
-          "command": "npm install --ignore-scripts"
         }
       }
     }

@@ -1,5 +1,7 @@
 // src/normalize/form-feed.ts
 
+import { FORM_FEED } from '../consts.js';
+
 /**
  * Normalizes form feed characters (U+000C) by removing them.
  *
@@ -16,5 +18,5 @@
  * ```
  */
 export function normalizeFormFeed(input: string): string {
-  return input.replaceAll('\f', '');
+  return input.replaceAll(FORM_FEED, '');
 }

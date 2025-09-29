@@ -11,6 +11,7 @@ import tseslint from 'typescript-eslint';
 import js from '@eslint/js';
 import json from '@eslint/json';
 import markdown from '@eslint/markdown';
+
 /**
  * Js/Ts imports/exports rules
  * @typedef {import("eslint").Linter.RulesRecord}

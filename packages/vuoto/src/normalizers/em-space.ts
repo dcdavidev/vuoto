@@ -1,3 +1,5 @@
+import { EM_SPACE } from '../consts.js';
+
 /**
  * Replaces em space (U+2003) with a normal space.
  *
@@ -12,5 +14,5 @@
  * ```
  */
 export function normalizeEmSpace(input: string): string {
-  return input.replaceAll('\u2003', ' ');
+  return input.replaceAll(EM_SPACE, ' ');
 }

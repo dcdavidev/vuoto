@@ -1,3 +1,5 @@
+import { LINE_SEPARATOR } from '../consts.js';
+
 /**
  * Replaces line separator (U+2028) with a newline character.
  *
@@ -14,5 +16,5 @@
  * ```
  */
 export function normalizeLineSeparator(input: string): string {
-  return input.replaceAll('\u2028', '\n');
+  return input.replaceAll(LINE_SEPARATOR, '\n');
 }

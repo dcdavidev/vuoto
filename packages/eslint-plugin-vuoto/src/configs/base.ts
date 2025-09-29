@@ -1,0 +1,15 @@
+export const baseRules: Record<string, 'error' | 'off'> = {
+  'vuoto/byte-order-mark': 'error',
+  'vuoto/em-space': 'error',
+  'vuoto/en-space': 'error',
+  'vuoto/form-feed': 'error',
+  'vuoto/ideographic-space': 'error',
+  'vuoto/invisible-separators': 'error',
+  'vuoto/line-separator': 'error',
+  'vuoto/narrow-no-break-space': 'error',
+  'vuoto/non-breaking-space': 'error',
+  'vuoto/paragraph-separator': 'error',
+  'vuoto/vertical-tab': 'error',
+  'vuoto/visible-misc-spaces': 'error',
+  'vuoto/zero-width': 'error',
+};

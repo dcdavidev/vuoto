@@ -1,3 +1,5 @@
+import { PARAGRAPH_SEPARATOR } from '../consts.js';
+
 /**
  * Replaces paragraph separator (U+2029) with two newlines.
  *
@@ -15,5 +17,5 @@
  * ```
  */
 export function normalizeParagraphSeparator(input: string): string {
-  return input.replaceAll('\u2029', '\n\n');
+  return input.replaceAll(PARAGRAPH_SEPARATOR, '\n\n');
 }

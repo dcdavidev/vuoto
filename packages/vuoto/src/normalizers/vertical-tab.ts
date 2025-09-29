@@ -1,3 +1,5 @@
+import { VERTICAL_TAB } from '../consts.js';
+
 /**
  * Normalizes vertical tab characters (U+000B) by removing them.
  *
@@ -14,5 +16,5 @@
  * ```
  */
 export function normalizeVerticalTab(input: string): string {
-  return input.replaceAll('\v', '');
+  return input.replaceAll(VERTICAL_TAB, '');
 }

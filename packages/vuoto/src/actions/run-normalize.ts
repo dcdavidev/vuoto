@@ -8,18 +8,13 @@ import { DEFAULT_IGNORES } from '../consts.js';
 import { collectGitignores } from '../helpers/collect-gitignores.js';
 import { resolveConfig } from '../helpers/resolve-config.js';
 import { normalize } from '../normalize.js';
-
-export type RunNormalizerOptions = {
-  patterns: string[];
-  fix?: boolean;
-  exclude?: string[];
-};
+import { RunNormalizeOptions } from '../types/normalize-options.js';
 
 /**
  * Main logic: load config, collect files, run normalize.
  */
 export async function runNormalize(
-  options: RunNormalizerOptions
+  options: RunNormalizeOptions
 ): Promise<void> {
   // load config and ignores
   const config = await resolveConfig();

@@ -1,3 +1,5 @@
+import { EN_SPACE } from '../consts.js';
+
 /**
  * Replaces en space (U+2002) with a normal space.
  *
@@ -12,5 +14,5 @@
  * ```
  */
 export function normalizeEnSpace(input: string): string {
-  return input.replaceAll('\u2002', ' ');
+  return input.replaceAll(EN_SPACE, ' ');
 }

@@ -3,7 +3,17 @@
  */
 export function instanceOfNodeError(
   value: unknown,
-  errorType: new (...args: []) => Error
+  errorType: new (...args: unknown[]) => Error
 ): value is NodeJS.ErrnoException {
-  return value instanceof errorType;
+  if (!(value instanceof errorType)) {
+    return false;
+  }
+
+  const candidate = value as NodeJS.ErrnoException;
+
+  return (
+    typeof candidate.code === 'string' ||
+    typeof candidate.code === 'number' ||
+    typeof candidate.errno === 'number'
+  );
 }

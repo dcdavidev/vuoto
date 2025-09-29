@@ -1,5 +1,10 @@
+import { ZERO_WIDTH } from '../consts.js';
+
 /**
- * Removes zero-width characters (U+200B, U+200C, U+200D).
+ * Removes zero-width and invisible characters.
+ *
+ * Includes: U+200B (Zero Width Space), U+200C (Non-Joiner),
+ * U+200D (Joiner), U+FEFF (BOM), U+2060 (Word Joiner).
  *
  * @param input - The input string.
  * @returns The normalized string.
@@ -12,5 +17,5 @@
  * ```
  */
 export function normalizeZeroWidth(input: string): string {
-  return input.replaceAll(/[\u200B\u200C\u200D]/g, '');
+  return input.replaceAll(ZERO_WIDTH, '');
 }

@@ -1,13 +1,7 @@
 import { defineConfig } from 'tsdown';
 
 export default defineConfig({
-  entry: [
-    'src/actions/index.ts',
-    'src/normalizers/index.ts',
-    'src/types/index.ts',
-    'src/index.ts',
-    'src/vuoto.ts',
-  ],
+  entry: 'src/index.ts',
   platform: 'node',
   format: ['esm', 'cjs'],
   dts: { build: true },

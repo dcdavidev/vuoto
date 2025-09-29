@@ -1,3 +1,5 @@
+import { NON_BREAKING_SPACE } from '../consts.js';
+
 /**
  * Replaces non-breaking space (U+00A0) with a normal space.
  *
@@ -12,5 +14,5 @@
  * ```
  */
 export function normalizeNonBreakingSpace(input: string): string {
-  return input.replaceAll('\u00A0', ' ');
+  return input.replaceAll(NON_BREAKING_SPACE, ' ');
 }

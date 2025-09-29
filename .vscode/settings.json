@@ -99,7 +99,7 @@
   "exportall.config.barrelName": "index.ts",
   "exportall.config.exportFileExtension": "js",
   "exportall.config.includeFoldersToExport": false,
-  "exportall.config.namedExports": false,
+  "exportall.config.namedExports": true,
   "exportall.config.semis": true,
   "exportall.config.recursive": true,
   "emojisense.markupCompletionsEnabled": true,

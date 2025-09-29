@@ -1,3 +1,5 @@
+import { NARROW_NO_BREAK_SPACE } from '../consts.js';
+
 /**
  * Replaces narrow no-break space (U+202F) with a normal space.
  *
@@ -12,5 +14,5 @@
  * ```
  */
 export function normalizeNarrowNoBreakSpace(input: string): string {
-  return input.replaceAll('\u202F', ' ');
+  return input.replaceAll(NARROW_NO_BREAK_SPACE, ' ');
 }

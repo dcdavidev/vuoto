@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="vuoto" src="../../assets/logo/vuoto-ext.png" />
+  <img alt="vuoto" src="./vuoto-ext.png" />
 </p>
 
 **vuoto** is a tool that normalizes whitespace and removes invisible or irregular characters from your project files.

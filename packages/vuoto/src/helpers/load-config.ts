@@ -13,11 +13,13 @@ export async function loadConfig(): Promise<Partial<Config>> {
     const absPath = path.resolve(process.cwd(), candidate);
     try {
       await fs.access(absPath);
-      const mod = await import(pathToFileURL(absPath).href);
-      return mod.default ?? mod;
     } catch {
-      // ignore errors, keep searching
+      continue;
     }
+
+    const mod = await import(pathToFileURL(absPath).href);
+    return mod.default ?? mod;
   }
-  return {};
+
+  return {}; // fallback sicuro
 }

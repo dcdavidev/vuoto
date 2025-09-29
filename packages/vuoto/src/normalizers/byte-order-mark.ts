@@ -1,3 +1,5 @@
+import { BYTE_ORDER_MARK } from '../consts.js';
+
 /**
  * Removes byte order mark (U+FEFF).
  *
@@ -12,5 +14,5 @@
  * ```
  */
 export function normalizeByteOrderMark(input: string): string {
-  return input.replaceAll('\uFEFF', '');
+  return input.replaceAll(BYTE_ORDER_MARK, '');
 }

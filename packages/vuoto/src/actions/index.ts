@@ -1,3 +1,3 @@
-export * from './expand-patterns.js';
-export * from './init-config.js';
-export * from './run-normalize.js';
+export { expandPatterns } from './expand-patterns.js';
+export { initConfig } from './init-config.js';
+export { runNormalize } from './run-normalize.js';

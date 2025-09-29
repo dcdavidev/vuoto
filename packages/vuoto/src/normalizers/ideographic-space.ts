@@ -1,3 +1,5 @@
+import { IDEOGRAPHIC_SPACE } from '../consts.js';
+
 /**
  * Normalizes ideographic space (U+3000) to a standard space (U+0020).
  *
@@ -14,5 +16,5 @@
  * ```
  */
 export function normalizeIdeographicSpace(input: string): string {
-  return input.replaceAll('\u3000', ' ');
+  return input.replaceAll(IDEOGRAPHIC_SPACE, ' ');
 }
