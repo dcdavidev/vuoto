@@ -180,5 +180,6 @@
       ".github/workflows/*.yaml"
     ],
     "https://json.schemastore.org/pnpm-workspace.json": ["pnpm-workspace.yaml"]
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

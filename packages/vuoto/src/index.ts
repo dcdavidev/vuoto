@@ -1,22 +1,19 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
 import fs from 'node:fs/promises';
-import process from 'node:process';
-import fg from 'fast-glob';
 import path from 'node:path';
+import process from 'node:process';
 import { fileURLToPath } from 'node:url';
-import { normalize } from './normalize.js';
+
+import { Command } from 'commander';
+import fg from 'fast-glob';
+
 import pkg from '../package.json' with { type: 'json' };
+import { resolveConfig } from './config.js';
+import { normalize } from './normalize.js';
+import { instanceOfNodeError } from './helpers/instance-of-node-error.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const program = new Command();
-
-const BUILTIN_IGNORES = [
-  '**/node_modules/**',
-  '**/*.{png,jpg,jpeg,gif,svg,webp,avif}',
-  '**/*.{mp4,mov,avi,mkv}',
-  '**/*.{mp3,wav,ogg,flac}',
-];
 
 program
   .name('vuoto')
@@ -27,11 +24,11 @@ program
   .option('--check', 'exit with code 1 if issues are found')
   .option(
     '--exclude <globs...>',
-    'glob patterns to exclude (like in .gitignore)',
+    'glob patterns to exclude (like in .gitignore)'
   )
   .option('--init', 'generate a default vuoto.config.js')
   .action(async (patterns: string[], options) => {
-    // init mode
+    // init mode: copy template
     if (options.init) {
       const configPath = path.resolve(process.cwd(), 'vuoto.config.js');
       const templatePath = path.join(__dirname, '../templates/vuoto.config.js');
@@ -39,10 +36,10 @@ program
       try {
         const content = await fs.readFile(templatePath, 'utf8');
         await fs.writeFile(configPath, content, { flag: 'wx' });
-        console.log(`✅ Created ${path.relative(process.cwd(), configPath)}`);
-      } catch (err: any) {
-        if (err.code === 'EEXIST') {
-          console.error(`⚠️ vuoto.config.js already exists`);
+        console.log(`👌 Created ${path.relative(process.cwd(), configPath)}`);
+      } catch (err: unknown) {
+        if (instanceOfNodeError(err, Error) && err.code === 'EEXIST') {
+          console.error(`🤦‍♂️ vuoto.config.js already exists`);
         } else {
           throw err;
         }
@@ -50,14 +47,42 @@ program
       return;
     }
 
-    // normal run
-    if (patterns.length === 0) patterns = ['.'];
+    // default to current directory
+    if (!patterns || patterns.length === 0) patterns = ['.'];
 
-    const files = await fg(patterns, {
+    // expand directories into globs
+    const expanded: string[] = [];
+    for (const p of patterns) {
+      if (/[*?[\]{}()!+@]/.test(p)) {
+        expanded.push(p);
+        continue;
+      }
+      try {
+        const abs = path.resolve(process.cwd(), p);
+        const st = await fs.stat(abs);
+        if (st.isDirectory()) {
+          const rel = path.relative(process.cwd(), abs) || '.';
+          expanded.push(
+            rel === '.' ? '**/*' : `${rel.replaceAll('\\', '/')}/**/*`
+          );
+          continue;
+        }
+      } catch {
+        // not a real path, keep original
+      }
+      expanded.push(p);
+    }
+
+    // load config
+    const config = await resolveConfig();
+    const ignore = [...(config.exclude ?? []), ...(options.exclude ?? [])];
+
+    const files = await fg(expanded, {
       cwd: process.cwd(),
       absolute: true,
-      ignore: [...BUILTIN_IGNORES, ...(options.exclude || [])],
+      ignore,
       dot: true,
+      onlyFiles: true,
     });
 
     if (files.length === 0) {

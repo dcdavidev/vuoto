@@ -1,9 +1,10 @@
 /**
- * @typedef {import('@dcdavidev/vuoto').VuotoConfig} VuotoConfig
+ * @typedef {import('@dcdavidev/vuoto').Config} Config
  */
 
-/** @type {VuotoConfig} */
+/** @type {Config} */
 const config = {
+  // Exclude build artifacts
   exclude: ['dist/**'],
 };
 
