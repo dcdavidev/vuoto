@@ -10,7 +10,7 @@
     "vuoto:build": "nx run vuoto:build",
     "prevuoto:install": "npm run vuoto:uninstall && npm run vuoto:build",
     "vuoto:install": "npm install --global ./packages/vuoto",
-    "vuoto:uninstall": "npm remove --global #@dcdavidev/vuoto"
+    "vuoto:uninstall": "npm remove --global @dcdavidev/vuoto"
   },
   "config": {
     "commitizen": {
