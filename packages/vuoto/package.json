@@ -14,23 +14,23 @@
       "require": "./dist/index.cjs",
       "default": "./dist/index.js"
     },
+    "./helpers": {
+      "types": "./dist/helpers/index.d.ts",
+      "import": "./dist/helpers/index.js",
+      "require": "./dist/helpers/index.cjs",
+      "default": "./dist/helpers/index.js"
+    },
     "./normalizers": {
       "types": "./dist/normalizers/index.d.ts",
       "import": "./dist/normalizers/index.js",
       "require": "./dist/normalizers/index.cjs",
       "default": "./dist/normalizers/index.js"
     },
-    "./normalize": {
-      "types": "./dist/normalize.d.ts",
-      "import": "./dist/normalize.js",
-      "require": "./dist/normalize.cjs",
-      "default": "./dist/normalize.js"
-    },
-    "./config": {
-      "types": "./dist/config.d.ts",
-      "import": "./dist/config.js",
-      "require": "./dist/config.cjs",
-      "default": "./dist/config.js"
+    "./vuoto": {
+      "types": "./dist/vuoto.d.ts",
+      "import": "./dist/vuoto.js",
+      "require": "./dist/vuoto.cjs",
+      "default": "./dist/vuoto.js"
     }
   },
   "files": [
@@ -39,7 +39,7 @@
     "LICENSE"
   ],
   "bin": {
-    "vuoto": "./dist/index.js"
+    "vuoto": "./dist/vuoto.js"
   },
   "nx": {
     "name": "vuoto",

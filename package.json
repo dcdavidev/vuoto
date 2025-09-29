@@ -7,7 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "cli:install": "npm i -g ./packages/vuoto"
+    "vuoto:install": "npm install --global ./packages/vuoto",
+    "vuoto:uninstall": "npm remove --global #@dcdavidev/vuoto",
+    "vuoto:build": "nx run vuoto:build",
+    "prevuoto:install": "npm run vuoto:uninstall && npm run vuoto:build"
   },
   "config": {
     "commitizen": {
