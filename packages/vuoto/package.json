@@ -1,8 +1,8 @@
 {
   "name": "@dcdavidev/vuoto",
-  "description": "Whitespace normalizer core for the vuoto ecosystem, ensuring clean and consistent source files.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
+  "description": "Whitespace normalizer core for the vuoto ecosystem, ensuring clean and consistent source files.",
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
