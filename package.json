@@ -6,7 +6,9 @@
   "workspaces": [
     "packages/*"
   ],
-  "scripts": {},
+  "scripts": {
+    "cli:install": "npm i -g ./packages/vuoto"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"

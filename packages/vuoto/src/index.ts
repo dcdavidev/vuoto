@@ -5,7 +5,7 @@ import process from 'node:process';
 import fg from 'fast-glob';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { normalize } from '@dcdavidev/vuoto-core';
+import { normalize } from './normalize.js';
 import pkg from '../package.json' with { type: 'json' };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
