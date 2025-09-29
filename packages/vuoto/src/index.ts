@@ -1,8 +1,9 @@
-export * from './config.js';
 export * from './consts.js';
 export * from './helpers/collect-gitignores.js';
 export * from './helpers/instance-of-node-error.js';
+export * from './helpers/load-config.js';
 export * from './helpers/read-gitignore-file.js';
+export * from './helpers/resolve-config.js';
 export * from './normalize.js';
 export * from './normalizers/byte-order-mark.js';
 export * from './normalizers/em-space.js';
@@ -16,3 +17,5 @@ export * from './normalizers/non-breaking-space.js';
 export * from './normalizers/paragraph-separator.js';
 export * from './normalizers/vertical-tab.js';
 export * from './normalizers/zero-width.js';
+export * from './types/config.js';
+export * from './vuoto.js';
