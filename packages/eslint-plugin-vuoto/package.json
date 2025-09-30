@@ -21,7 +21,7 @@
     "vuoto-ext.png"
   ],
   "dependencies": {
-    "@dcdavidev/vuoto": "^0.2.1",
+    "@dcdavidev/vuoto": "^0.2.2",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
