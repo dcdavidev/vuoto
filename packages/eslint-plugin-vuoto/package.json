@@ -1,7 +1,13 @@
 {
   "name": "eslint-plugin-vuoto",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": false,
+  "description": "ESLint plugin to detect and fix irregular or invisible whitespace characters (BOM, zero-width, non-breaking spaces, etc.)",
+  "keywords": [
+    "eslint",
+    "eslint-plugin",
+    "vuoto"
+  ],
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
