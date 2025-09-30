@@ -1,4 +1,3 @@
-// tsdown.config.js
 import { defineConfig } from 'tsdown';
 
 export default defineConfig([
@@ -11,6 +10,7 @@ export default defineConfig([
       'src/types/index.ts',
       'src/consts.ts',
       'src/normalize.ts',
+      'src/index.ts',
     ],
     platform: 'node',
     format: ['esm', 'cjs'],
