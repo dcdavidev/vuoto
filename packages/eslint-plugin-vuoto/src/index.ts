@@ -1,4 +1,4 @@
-import { ESLint } from 'eslint';
+import type { ESLint } from 'eslint';
 
 import { baseRules } from './configs/base.js';
 import { meta } from './meta.js';
@@ -20,7 +20,7 @@ Object.assign(plugin.configs, {
 
   strict: {
     plugins: { vuoto: plugin },
-    rules: { ...baseRules }, // uguale a recommended per ora, ma estendibile
+    rules: { ...baseRules },
   },
 
   all: {

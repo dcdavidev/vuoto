@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const INVISIBLE_SEPARATORS = new RegExp(String.raw`[\u2060\uFEFF]`, 'g'); // word joiner, zero width no-break space
+import { INVISIBLE_SEPARATORS } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const PARAGRAPH_SEPARATOR = new RegExp(String.raw`\u2029`, 'g'); // U+2029 paragraph separator
+import { PARAGRAPH_SEPARATOR } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

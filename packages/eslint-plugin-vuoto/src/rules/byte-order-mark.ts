@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const BYTE_ORDER_MARK = new RegExp(String.raw`\uFEFF`, 'g'); // U+FEFF
+import { BYTE_ORDER_MARK } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

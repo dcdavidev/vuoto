@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const EN_SPACE = new RegExp(String.raw`\u2002`, 'g'); // U+2002 en space
+import { EN_SPACE } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

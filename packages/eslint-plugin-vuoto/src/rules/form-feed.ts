@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const FORM_FEED = new RegExp(String.raw`\f`, 'g'); // U+000C form feed
+import { FORM_FEED } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

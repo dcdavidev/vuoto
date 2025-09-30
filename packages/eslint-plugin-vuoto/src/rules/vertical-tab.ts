@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const VERTICAL_TAB = new RegExp(String.raw`\x0B`, 'g');
+import { VERTICAL_TAB } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

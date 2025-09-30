@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const LINE_SEPARATOR = new RegExp(String.raw`\u2028`, 'g'); // U+2028 line separator
+import { LINE_SEPARATOR } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

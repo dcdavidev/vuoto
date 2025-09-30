@@ -3,7 +3,7 @@
  */
 export function instanceOfNodeError(
   value: unknown,
-  errorType: new (...args: unknown[]) => Error
+  errorType: ErrorConstructor
 ): value is NodeJS.ErrnoException {
   if (!(value instanceof errorType)) {
     return false;

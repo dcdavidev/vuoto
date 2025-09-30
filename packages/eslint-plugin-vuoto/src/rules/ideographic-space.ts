@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const IDEOGRAPHIC_SPACE = new RegExp(String.raw`\u3000`, 'g'); // U+3000 ideographic space
+import { IDEOGRAPHIC_SPACE } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

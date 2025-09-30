@@ -41,9 +41,10 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "vuoto": "./dist/vuoto.js"
+    "vuoto": "./bin/vuoto.js"
   },
   "files": [
+    "bin",
     "dist",
     "templates",
     "LICENSE",
@@ -68,8 +69,12 @@
       "build": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "tsdown",
-          "cwd": "packages/vuoto"
+          "cwd": "packages/vuoto",
+          "parallel": false,
+          "commands": [
+            "tsdown",
+            "tsc -p tsconfig.lib.json"
+          ]
         },
         "outputs": [
           "{projectRoot}/dist"

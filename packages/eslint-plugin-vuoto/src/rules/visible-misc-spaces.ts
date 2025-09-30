@@ -1,10 +1,6 @@
 import type { Rule } from 'eslint';
 
-// Match: U+1680, U+180E, U+2000–U+200A, U+205F, U+3000
-const VISIBLE_MISC_SPACES = new RegExp(
-  String.raw`[\u1680\u180E\u2000-\u200A\u205F\u3000]`,
-  'g'
-);
+import { VISIBLE_MISC_SPACES } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

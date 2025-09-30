@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const NON_BREAKING_SPACE = new RegExp(String.raw`\u00A0`, 'g'); // U+00A0 non-breaking space
+import { NON_BREAKING_SPACE } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {

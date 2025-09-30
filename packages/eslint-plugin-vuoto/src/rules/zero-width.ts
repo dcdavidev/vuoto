@@ -1,9 +1,6 @@
 import type { Rule } from 'eslint';
 
-const ZERO_WIDTH_REGEX = new RegExp(
-  String.raw`\u200B|\u200C|\u200D|\uFEFF|\u2060`,
-  'g'
-);
+import { ZERO_WIDTH } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {
@@ -27,7 +24,7 @@ const rule: Rule.RuleModule = {
     return {
       Program() {
         let match: RegExpExecArray | null;
-        while ((match = ZERO_WIDTH_REGEX.exec(text)) !== null) {
+        while ((match = ZERO_WIDTH.exec(text)) !== null) {
           const index = match.index;
           const char = match[0];
 

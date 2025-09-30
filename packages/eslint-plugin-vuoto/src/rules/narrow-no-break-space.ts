@@ -1,6 +1,6 @@
 import type { Rule } from 'eslint';
 
-const NARROW_NO_BREAK_SPACE = new RegExp(String.raw`\u202F`, 'g'); // U+202F narrow no-break space
+import { NARROW_NO_BREAK_SPACE } from '@dcdavidev/vuoto';
 
 const rule: Rule.RuleModule = {
   meta: {
