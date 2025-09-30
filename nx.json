@@ -60,7 +60,7 @@
     }
   },
   "release": {
-    "projects": ["packages/vuoto"],
+    "projects": ["packages/vuoto", "packages/eslint-plugin-vuoto"],
     "projectsRelationship": "independent",
     "version": {
       "conventionalCommits": true,
