@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-eslint-plugin-vuoto",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
@@ -30,6 +30,9 @@
   },
   "peerDependencies": {
     "eslint": "^9.36.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "nx": {
     "name": "eslint-plugin-vuoto",
