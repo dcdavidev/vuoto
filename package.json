@@ -9,7 +9,9 @@
     "fmt": "pnpm prettier --write .",
     "lint": "pnpm eslint --fix .",
     "lint:fmt": "pnpm run lint && pnpm run fmt",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "release": "nx release --yes",
+    "release:first": "nx release --first-release --yes"
   },
   "config": {
     "commitizen": {
