@@ -7,3 +7,4 @@ onlyBuiltDependencies:
   - '@swc/core'
   - lefthook
   - nx
+  - unrs-resolver

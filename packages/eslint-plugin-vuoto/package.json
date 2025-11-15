@@ -1,0 +1,71 @@
+{
+  "name": "eslint-plugin-vuoto",
+  "version": "0.0.1",
+  "private": true,
+  "description": "ESLint plugin for detecting and fixing whitespace issues - zero-width characters, non-breaking spaces, and Unicode normalization",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "whitespace",
+    "unicode",
+    "zero-width",
+    "non-breaking-space",
+    "normalization",
+    "linter",
+    "code-quality"
+  ],
+  "homepage": "https://github.com/dcdavidev/vuoto#readme",
+  "bugs": {
+    "url": "https://github.com/dcdavidev/vuoto/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dcdavidev/vuoto.git",
+    "directory": "packages/eslint-plugin-vuoto"
+  },
+  "license": "MIT",
+  "author": "Davide Di Criscito",
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "tslib": "^2.8.1",
+    "vuoto": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.10.1",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "eslint": ">=9.0.0"
+  },
+  "nx": {
+    "targets": {
+      "build": {
+        "dependsOn": [
+          {
+            "projects": [
+              "vuoto"
+            ],
+            "target": "build"
+          }
+        ]
+      }
+    }
+  }
+}

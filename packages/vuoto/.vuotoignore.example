@@ -1,0 +1,26 @@
+# Vuoto Ignore File
+# Add patterns here to exclude files from whitespace normalization
+# One pattern per line, like .gitignore
+
+# Build outputs
+dist/**
+build/**
+.next/**
+.nuxt/**
+out/**
+
+# Dependencies
+node_modules/**
+
+# Compiled files
+*.min.js
+*.min.css
+*.bundle.js
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Logs
+*.log
