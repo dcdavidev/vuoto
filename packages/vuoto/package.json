@@ -1,7 +1,7 @@
 {
   "name": "vuoto",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.5.0",
+  "private": false,
   "description": "Modern whitespace normalizer CLI with enhanced output and developer experience - cut the noise, clean the void",
   "keywords": [
     "whitespace",
@@ -64,5 +64,8 @@
   "devDependencies": {
     "@types/node": "^24.10.1",
     "typescript": "^5.9.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
