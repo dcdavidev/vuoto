@@ -1,5 +1,36 @@
 {
   "recommendations": [
-    "nrwl.angular-console"
+    "nrwl.angular-console",
+    "bierner.emojisense",
+    "formulahendry.auto-rename-tag",
+    "firefox-devtools.vscode-firefox-debug",
+    "dsznajder.es7-react-js-snippets",
+    "pkief.material-icon-theme",
+    "ms-edgedevtools.vscode-edge-devtools",
+    "ms-vscode-remote.remote-wsl",
+    "codacy-app.codacy",
+    "streetsidesoftware.code-spell-checker",
+    "coderabbit.coderabbit-vscode",
+    "joshbolduc.commitlint",
+    "vivaxy.vscode-conventional-commits",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "tamasfe.even-better-toml",
+    "jimeh.executable-on-save",
+    "github.vscode-github-actions",
+    "bierner.github-markdown-preview",
+    "ecmel.vscode-html-css",
+    "visualstudioexptteam.vscodeintellicode",
+    "lottiefiles.vscode-lottie",
+    "motion.motion-vscode-extension",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "rpinski.shebang-snippets",
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
+    "bradlc.vscode-tailwindcss",
+    "gruntfuggly.todo-tree",
+    "redhat.vscode-yaml"
   ]
 }

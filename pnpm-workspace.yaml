@@ -1,4 +1,9 @@
 packages:
-  - "packages/*"
+  - packages/*
 
 autoInstallPeers: true
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - lefthook
+  - nx
