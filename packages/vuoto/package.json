@@ -1,6 +1,6 @@
 {
   "name": "vuoto",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "private": false,
   "description": "Modern whitespace normalizer CLI with enhanced output and developer experience - cut the noise, clean the void",
   "keywords": [

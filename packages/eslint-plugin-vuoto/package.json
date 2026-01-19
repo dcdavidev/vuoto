@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-vuoto",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "private": false,
   "description": "ESLint plugin for detecting and fixing whitespace issues - zero-width characters, non-breaking spaces, and Unicode normalization",
   "keywords": [
