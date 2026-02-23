@@ -2,20 +2,7 @@
 
 > ESLint plugin for detecting and fixing whitespace issues - zero-width characters, non-breaking spaces, and Unicode normalization
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Flat Config (ESLint 9+)](#flat-config-eslint-9)
-  - [Configuration Presets](#configuration-presets)
-- [Rules](#rules)
-  - [Zero-Width Characters](#zero-width-characters)
-  - [Invisible Separators](#invisible-separators)
-  - [Visible Whitespace](#visible-whitespace)
-  - [Control Characters](#control-characters)
-- [Building](#building)
-- [License](#license)
+`eslint-plugin-vuoto` is the ESLint counterpart to `vuoto`, providing real-time linting and auto-fix capabilities for whitespace issues in your project.
 
 ## Features
 
@@ -23,15 +10,13 @@
 - 🔧 **Auto-fix support** for all rules
 - 📦 **4 preset configurations** (recommended, strict, all, off)
 - 🎯 **ESLint 9+ flat config** support
-- 🚀 **Zero dependencies** (except peer dependency on ESLint)
+- 🚀 **Zero dependencies** (except peer dependency on ESLint and the `vuoto` core)
 - 📝 **TypeScript support** with full type definitions
 
 ## Installation
 
 ```bash
 npm install --save-dev eslint-plugin-vuoto
-# or
-yarn add -D eslint-plugin-vuoto
 # or
 pnpm add -D eslint-plugin-vuoto
 ```
@@ -45,14 +30,8 @@ pnpm add -D eslint-plugin-vuoto
 import vuoto from 'eslint-plugin-vuoto';
 
 export default [
-  {
-    plugins: {
-      vuoto,
-    },
-    rules: {
-      ...vuoto.configs.recommended[0].rules,
-    },
-  },
+  // Spread the recommended configuration
+  ...vuoto.configs.recommended,
 ];
 ```
 
@@ -64,48 +43,17 @@ The plugin provides four preset configurations:
 
 The default configuration with all rules set to `error`. Suitable for most projects.
 
-```javascript
-import vuoto from 'eslint-plugin-vuoto';
-
-export default [
-  {
-    plugins: { vuoto },
-    rules: {
-      ...vuoto.configs.recommended[0].rules,
-    },
-  },
-];
-```
-
 #### `strict`
 
 Same as recommended (all rules as errors). Use for maximum strictness.
-
-```javascript
-rules: {
-  ...vuoto.configs.strict[0].rules,
-}
-```
 
 #### `all`
 
 Enable all available rules.
 
-```javascript
-rules: {
-  ...vuoto.configs.all[0].rules,
-}
-```
-
 #### `off`
 
 Disable all rules (useful for gradual adoption).
-
-```javascript
-rules: {
-  ...vuoto.configs.off[0].rules,
-}
-```
 
 ## Rules
 
@@ -146,7 +94,7 @@ All rules support auto-fixing and are enabled by default in the recommended conf
 
 ## Building
 
-Run `nx build eslint-plugin-vuoto` to build the library.
+Run `pnpm run build` in the package directory or `turbo run build --filter=eslint-plugin-vuoto` from the root.
 
 ---
 
@@ -154,6 +102,6 @@ Run `nx build eslint-plugin-vuoto` to build the library.
 
 This project is licensed under the MIT License.
 
-**Copyright (c) 2025 Davide Di Criscito**
+**Copyright (c) 2026 Davide Di Criscito**
 
 For the full details, see the [LICENSE](./LICENSE) file.

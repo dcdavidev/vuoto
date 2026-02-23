@@ -1,26 +1,14 @@
 # vuoto
 
-cut the noise, clean the void—normalize your whitespace
+> cut the noise, clean the void—normalize your whitespace
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [CLI](#cli)
-  - [Programmatic API](#programmatic-api)
-- [Configuration](#configuration)
-- [What it Normalizes](#what-it-normalizes)
-- [Enhancements over Legacy Package](#enhancements-over-legacy-package)
-- [Building](#building)
-- [License](#license)
+`vuoto` is a CLI tool that finds and fixes invisible or problematic whitespace characters in your files.
 
 ## Features
 
 - 🎨 **Enhanced CLI** with Commander.js - Better command parsing and help system
 - 🌈 **Colorful Output** with Chalk - Beautiful, readable terminal output
 - 📊 **Progress Tracking** - Clear feedback on what's being processed
-- 🔍 **Verbose Mode** - Detailed logging for debugging
 - 🤫 **Silent Mode** - Quiet operation for CI/CD pipelines
 - ⚡ **Fast** - Efficient file processing with fast-glob
 - 🎯 **Smart Defaults** - Sensible ignore patterns out of the box
@@ -29,7 +17,15 @@ cut the noise, clean the void—normalize your whitespace
 ## Installation
 
 ```bash
-pnpm install
+npm install -g vuoto
+# or
+pnpm add -g vuoto
+```
+
+You can also run it directly using npx:
+
+```bash
+npx vuoto --help
 ```
 
 ## Usage
@@ -37,7 +33,7 @@ pnpm install
 ### CLI
 
 ```bash
-# Check all files
+# Check all files in current directory
 vuoto
 
 # Fix whitespace issues
@@ -51,9 +47,6 @@ vuoto --fix --exclude "**/*.min.js"
 
 # Verbose output
 vuoto --verbose --fix
-
-# Silent mode (for CI)
-vuoto --silent --fix
 ```
 
 ### Programmatic API
@@ -76,53 +69,34 @@ await runNormalize({
 
 Create a `.vuotoignore` file in your project root to exclude files (similar to `.gitignore`):
 
-```properties
+```ignore
 # Build outputs
 dist/**
 build/**
-.next/**
 
 # Dependencies
 node_modules/**
 
 # Minified files
 *.min.js
-*.min.css
 
 # Lock files
-package-lock.json
 pnpm-lock.yaml
-```
-
-You can also use the `--exclude` flag to exclude patterns on the fly:
-
-```bash
-vuoto --fix --exclude "**/*.test.ts" "**/*.spec.ts"
 ```
 
 ## What it Normalizes
 
-- ✓ Zero-width characters (U+200B, U+200C, U+200D)
-- ✓ Byte order marks (U+FEFF)
-- ✓ Non-breaking spaces (U+00A0, U+202F)
-- ✓ Line/paragraph separators (U+2028, U+2029)
-- ✓ Em/en spaces (U+2003, U+2002)
-- ✓ Ideographic spaces (U+3000)
-- ✓ Form feeds and vertical tabs
-- ✓ Various Unicode space characters
-
-## Enhancements over Legacy Package
-
-1. **Better CLI Experience** - Commander.js provides better argument parsing and help
-2. **Visual Feedback** - Chalk colors make output clear and professional
-3. **Improved Output** - Summary statistics and progress indicators
-4. **Simpler Configuration** - Just use `.vuotoignore` file instead of JavaScript config
-5. **Type Safety** - Full TypeScript support with proper types
-6. **Modern APIs** - Uses latest Node.js and npm package features
+- ✓ **Zero-width characters** (U+200B, U+200C, U+200D)
+- ✓ **Byte order marks** (U+FEFF)
+- ✓ **Non-breaking spaces** (U+00A0, U+202F)
+- ✓ **Line/paragraph separators** (U+2028, U+2029)
+- ✓ **Em/en spaces** (U+2003, U+2002)
+- ✓ **Ideographic spaces** (U+3000)
+- ✓ **Form feeds and vertical tabs**
 
 ## Building
 
-Run `pnpm run build` or `turbo run build` to build the library.
+Run `pnpm run build` in the package directory or `turbo run build --filter=vuoto` from the root.
 
 ---
 
