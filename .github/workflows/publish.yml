@@ -1,4 +1,4 @@
-name: Publish to NPM and GitHub Packages
+name: Publish to NPM
 
 on:
   push:
@@ -12,7 +12,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-      packages: write
 
     steps:
       - name: Checkout Repo
@@ -39,9 +38,3 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           pnpm publish -r --no-git-checks --access public
-
-      - name: Publish to GitHub Packages
-        run: |
-          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > .npmrc
-          echo "registry=https://npm.pkg.github.com" >> .npmrc
-          pnpm publish -r --no-git-checks
