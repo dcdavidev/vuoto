@@ -1,28 +1,55 @@
-# spellbookx turbo-morepo-template
+<p align="center">
+  <img src="gh-banner.png" alt="vuoto banner" width="100%">
+</p>
 
-This is a starter template for a monorepo using [Turborepo](https://turbo.build/). It comes pre-configured with the excellent [Spellbookx](https://github.com/spellbookx/spellbookx) configurations for linting, formatting, and more, allowing you to bootstrap a new project quickly with solid defaults.
+# vuoto
 
-## Getting Started
+> cut the noise, clean the void—normalize your whitespace
 
-To create a new repository based on this template, you can use the `create-turbo` command with the `--example` flag, pointing to this GitHub repository.
+`vuoto` is a modern whitespace normalizer and ESLint plugin designed to detect and fix invisible, ambiguous, or problematic Unicode whitespace characters that can cause issues in codebases, data processing, and terminal output.
+
+## Features
+
+- 🎯 **Whitespace Normalization**: Detects and fixes 13+ types of problematic characters (Zero-width, NBSP, BOM, etc.)
+- 🚀 **ESLint Plugin**: Includes `eslint-plugin-vuoto` for real-time linting and auto-fixing.
+- 🌈 **Beautiful CLI**: Enhanced terminal output with progress tracking and detailed reporting.
+- ⚡ **Turbo Powered**: Built as a monorepo for maximum performance and reliability.
+- 🔧 **Highly Configurable**: Supports `.vuotoignore` for custom exclusions.
+
+## Packages
+
+| Package | Description | Version |
+| ------- | ----------- | ------- |
+| [`vuoto`](./packages/vuoto) | Core CLI and normalization engine | [![npm version](https://img.shields.io/npm/v/vuoto.svg)](https://www.npmjs.com/package/vuoto) |
+| [`eslint-plugin-vuoto`](./packages/eslint-plugin-vuoto) | ESLint rules for whitespace normalization | [![npm version](https://img.shields.io/npm/v/eslint-plugin-vuoto.svg)](https://www.npmjs.com/package/eslint-plugin-vuoto) |
+
+## Quick Start
+
+### CLI
 
 ```bash
-npx create-turbo@latest --example https://github.com/spellbookx/turbo-monorepo-template
+npx vuoto --fix
 ```
 
-This will scaffold a new project in a directory of your choice.
+### ESLint
 
-## What's Inside?
+```javascript
+// eslint.config.js
+import vuoto from 'eslint-plugin-vuoto';
 
-This template sets up a Turborepo monorepo with:
+export default [
+  ...vuoto.configs.recommended,
+];
+```
 
-- [ESLint](https://eslint.org/) configured using `@spellbookx/eslint-config`.
-- [Prettier](https://prettier.io/) configured using `@spellbookx/prettier-config`.
-- [TypeScript](https://www.typescriptlang.org/) configs based on `@spellbookx/typescript-config`.
-- Commit linting with [Commitlint](https://commitlint.js.org/) and `@spellbookx/commitlint-config`.
-- [CSpell](https://cspell.org/) for spell checking.
-- [Lefthook](https://github.com/evilmartians/lefthook) as a Git hooks manager.
-- [Release It!](https://github.com/release-it/release-it) for automated releases.
+## What it Normalizes
+
+- ✓ **Zero-width characters**: ZWSP, ZWNJ, ZWJ, ZWNBSP
+- ✓ **Invisible separators**: Word Joiner, BOM
+- ✓ **Non-breaking spaces**: NBSP, NNBSP
+- ✓ **Legacy controls**: Form Feed, Vertical Tab
+- ✓ **Unicode separators**: Line/Paragraph separators (U+2028, U+2029)
+- ✓ **Wide spaces**: Em/En spaces, Ideographic space
 
 ## License
 
