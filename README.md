@@ -18,9 +18,9 @@
 
 ## Packages
 
-| Package | Description | Version |
-| ------- | ----------- | ------- |
-| [`vuoto`](./packages/vuoto) | Core CLI and normalization engine | [![npm version](https://img.shields.io/npm/v/vuoto.svg)](https://www.npmjs.com/package/vuoto) |
+| Package                                                 | Description                               | Version                                                                                                                   |
+| ------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| [`vuoto`](./packages/vuoto)                             | Core CLI and normalization engine         | [![npm version](https://img.shields.io/npm/v/vuoto.svg)](https://www.npmjs.com/package/vuoto)                             |
 | [`eslint-plugin-vuoto`](./packages/eslint-plugin-vuoto) | ESLint rules for whitespace normalization | [![npm version](https://img.shields.io/npm/v/eslint-plugin-vuoto.svg)](https://www.npmjs.com/package/eslint-plugin-vuoto) |
 
 ## Quick Start
@@ -37,9 +37,7 @@ npx vuoto --fix
 // eslint.config.js
 import vuoto from 'eslint-plugin-vuoto';
 
-export default [
-  ...vuoto.configs.recommended,
-];
+export default [...vuoto.configs.recommended];
 ```
 
 ## What it Normalizes
