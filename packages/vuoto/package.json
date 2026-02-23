@@ -56,8 +56,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.lib.json",
-    "dev": "tsc -p tsconfig.lib.json -w",
+    "build": "rm -rf dist && pnpm run build:pkg && pnpm run build:types",
+    "build:pkg": "rolldown -c rolldown.config.ts",
+    "build:types": "tsc -p tsconfig.lib.json",
+    "dev": "rolldown -c rolldown.config.ts -w",
     "test": "vitest run"
   },
   "dependencies": {

@@ -27,11 +27,6 @@
   "license": "MIT",
   "author": "Davide Di Criscito",
   "type": "module",
-  "scripts": {
-    "build": "tsc -p tsconfig.lib.json",
-    "dev": "tsc -p tsconfig.lib.json -w",
-    "test": "vitest run"
-  },
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -49,6 +44,13 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "rm -rf dist && pnpm run build:pkg && pnpm run build:types",
+    "build:pkg": "rolldown -c rolldown.config.ts",
+    "build:types": "tsc -p tsconfig.lib.json",
+    "dev": "rolldown -c rolldown.config.ts -w",
+    "test": "vitest run"
+  },
   "dependencies": {
     "chalk": "^5.6.2",
     "tslib": "^2.8.1",

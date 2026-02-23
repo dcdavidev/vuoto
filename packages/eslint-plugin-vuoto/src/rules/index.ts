@@ -17,7 +17,7 @@ import {
 
 import { createWhitespaceRule } from './factory.js';
 
-export const rules: ESLint.Plugin['rules'] = {
+export const rules = {
   'byte-order-mark': createWhitespaceRule(
     BYTE_ORDER_MARK,
     'disallow byte order mark (BOM) (U+FEFF)'
@@ -68,4 +68,4 @@ export const rules: ESLint.Plugin['rules'] = {
     ZERO_WIDTH,
     'disallow zero-width characters (U+200B, U+200C, U+200D, U+FEFF, U+2060)'
   ),
-};
+} satisfies ESLint.Plugin['rules'];
