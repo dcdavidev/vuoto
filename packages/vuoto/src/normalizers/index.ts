@@ -1,0 +1,13 @@
+export { normalizeByteOrderMark } from './byte-order-mark.js';
+export { normalizeEmSpace } from './em-space.js';
+export { normalizeEnSpace } from './en-space.js';
+export { normalizeFormFeed } from './form-feed.js';
+export { normalizeIdeographicSpace } from './ideographic-space.js';
+export { normalizeInvisibleSeparators } from './invisible-separators.js';
+export { normalizeLineSeparator } from './line-separator.js';
+export { normalizeNarrowNoBreakSpace } from './narrow-no-break-space.js';
+export { normalizeNonBreakingSpace } from './non-breaking-space.js';
+export { normalizeParagraphSeparator } from './paragraph-separator.js';
+export { normalizeVerticalTab } from './vertical-tab.js';
+export { normalizeVisibleMiscSpaces } from './visible-misc-spaces.js';
+export { normalizeZeroWidth } from './zero-width.js';

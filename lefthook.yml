@@ -1,0 +1,14 @@
+commit-msg:
+  jobs:
+    - name: lint-commit-msg
+      run: pnpm dlx commitlint --verbose --edit {1}
+
+pre-commit:
+  parallel: false
+  jobs:
+    - name: lint
+      run: pnpm dlx eslint --no-warn-ignored --fix {staged_files}
+      stage_fixed: true
+    - name: fmt
+      run: pnpm dlx prettier --ignore-unknown --write {staged_files}
+      stage_fixed: true
