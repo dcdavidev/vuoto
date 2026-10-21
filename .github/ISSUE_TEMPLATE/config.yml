@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 Ask a Question or Discussion
+    url: https://github.com/dcdavidev/vuoto/discussions
+    about: Please ask usage questions or general architecture discussions in GitHub Discussions.

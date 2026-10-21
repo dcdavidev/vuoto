@@ -1,0 +1,52 @@
+name: 💡 Feature Request
+description: Propose a new feature, rule, preset, or enhancement for Vuoto
+title: 'feat: '
+labels: ['enhancement', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting an improvement or new feature for Vuoto! 🧹
+  - type: dropdown
+    id: package
+    attributes:
+      label: Target Package
+      description: Which package should this new feature or enhancement belong to?
+      options:
+        - 'vuoto (CLI)'
+        - 'vuoto (Core library / API)'
+        - 'eslint-plugin-vuoto'
+        - 'Monorepo / All'
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Use Case
+      description: Is your feature request related to a specific problem or friction in your workflow?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution or Behavior
+      description: Describe what you would like to see happen or how the feature should behave.
+      placeholder: Add support for option / command / rule...
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Any alternative solutions or workarounds you've considered.
+      placeholder: We tried using...
+    validations:
+      required: false
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any examples, documentation references, or screenshots.
+    validations:
+      required: false

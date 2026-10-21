@@ -1,5 +1,6 @@
 feff
 nnbsp
+ssot
 vitests
 vuotoignore
 zwnbsp

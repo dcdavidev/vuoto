@@ -1,0 +1,68 @@
+name: 🐛 Bug Report
+description: Report an issue or unexpected behavior in a Vuoto package or CLI
+title: 'fix: '
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug! Please fill out the sections below so we can reproduce and resolve the issue quickly.
+  - type: dropdown
+    id: package
+    attributes:
+      label: Affected Package
+      description: Which package in the Vuoto monorepo is experiencing the problem?
+      options:
+        - 'vuoto (CLI)'
+        - 'vuoto (Core library / API)'
+        - 'eslint-plugin-vuoto'
+        - 'Monorepo tooling / other'
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is.
+      placeholder: Describe the unexpected behavior...
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Detailed steps to reproduce the behavior.
+      placeholder: |
+        1. Run command '...'
+        2. With configuration '...'
+        3. See error '...'
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: What should have happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment & Versions
+      description: Details about your development environment.
+      value: |
+        - OS: [e.g. macOS 14, Ubuntu 24.04, Windows 11]
+        - Node.js version: [e.g. 24.0.0]
+        - Package Manager: [e.g. pnpm 10.30.1, npm 10, yarn 4, bun 1.2]
+        - Package version: [e.g. 0.1.2]
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context or Logs
+      description: Add any relevant console output, stack traces, or screenshots.
+      placeholder: Paste terminal logs or configuration files here...
+    validations:
+      required: false
