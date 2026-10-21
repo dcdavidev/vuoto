@@ -1,5 +1,1 @@
-import spellbookx from 'prettier-config-spellbookx';
-
-export default {
-  ...spellbookx.base,
-};
+export { default } from 'prettier-config-spellbookx';

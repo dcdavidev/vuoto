@@ -1,5 +1,7 @@
-import { RuleTester } from 'eslint';
 import { describe, it } from 'vitest';
+
+import { RuleTester } from 'eslint';
+
 import { createWhitespaceRule } from './factory.js';
 
 describe('createWhitespaceRule', () => {
@@ -21,7 +23,7 @@ describe('createWhitespaceRule', () => {
       ],
       invalid: [
         {
-          code: '// const x\u200B = 1;',
+          code: '// const x\u{200B} = 1;',
           output: '// const x = 1;',
           errors: [
             {
@@ -42,12 +44,9 @@ describe('createWhitespaceRule', () => {
       valid: [],
       invalid: [
         {
-          code: '// const\u200B x\u200B = 1;',
+          code: '// const\u{200B} x\u{200B} = 1;',
           output: '// const x = 1;',
-          errors: [
-            { messageId: 'unexpected' },
-            { messageId: 'unexpected' },
-          ],
+          errors: [{ messageId: 'unexpected' }, { messageId: 'unexpected' }],
         },
       ],
     });
@@ -60,7 +59,7 @@ describe('createWhitespaceRule', () => {
       valid: [],
       invalid: [
         {
-          code: 'const x\u00A0= 1;',
+          code: 'const x\u{A0}= 1;',
           output: 'const x = 1;',
           errors: [{ messageId: 'unexpected' }],
         },

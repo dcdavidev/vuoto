@@ -1,1 +1,63 @@
+# ==============================================================================
+# Prettier Ignore Configuration - Spellbookx
+# ==============================================================================
+
+# Package manager lockfiles (auto-generated)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb
+
+# Dependencies and package managers
+node_modules/
+.pnpm-store/
+.yarn/
+
+# Build outputs, bundles, and distribution directories
+dist/
+build/
+out/
+out-tsc/
+coverage/
+.turbo/
+.next/
+.nuxt/
+.svelte-kit/
+.astro/
+.rollup.cache/
+.parcel-cache/
+.vite/
+
+# TypeScript and source maps
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+
+# Temporary files, logs, and caches
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.cache/
+.temp/
+.tmp/
+.eslintcache/
+.sass-cache/
+
+# Version control and editor internals
+.git/
+.svn/
+.hg/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+*:Zone.Identifier*
+
+# Template engines & unprocessed formats
 **/*.hbs
+**/*.mustache
+**/*.min.*

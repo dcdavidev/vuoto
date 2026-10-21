@@ -47,8 +47,10 @@
   "scripts": {
     "build": "rm -rf dist && pnpm run build:pkg && pnpm run build:types",
     "build:pkg": "rolldown -c rolldown.config.ts",
-    "build:types": "tsc -p tsconfig.lib.json",
+    "build:types": "tsc -p tsconfig.json",
     "dev": "rolldown -c rolldown.config.ts -w",
+    "publish": "pnpm run release",
+    "release": "pnpm publish --access public --no-git-checks",
     "test": "vitest run"
   },
   "dependencies": {

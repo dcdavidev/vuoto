@@ -5,10 +5,10 @@ module.exports = defineConfig({
   import: ['cspell-config-spellbookx'],
   dictionaryDefinitions: [
     {
-      name: 'custom-dict',
-      path: './.config/cspell/dictionary.txt',
+      name: 'project-custom-words',
+      path: './.config/cspell/custom.txt',
       addWords: true,
     },
   ],
-  dictionaries: ['custom-dict'],
+  dictionaries: ['project-custom-words'],
 });

@@ -37,8 +37,11 @@ export function createWhitespaceRule(
         Program() {
           let match: RegExpExecArray | null;
           // Ensure regex is global
-          const globalRegex = new RegExp(regex.source, regex.flags.includes('g') ? regex.flags : regex.flags + 'g');
-          
+          const globalRegex = new RegExp(
+            regex.source,
+            regex.flags.includes('g') ? regex.flags : regex.flags + 'g'
+          );
+
           while ((match = globalRegex.exec(text)) !== null) {
             const index = match.index;
             const char = match[0];
@@ -51,7 +54,10 @@ export function createWhitespaceRule(
                 name: UNICODE_NAME_MAP[char] || 'Unknown whitespace',
               },
               fix(fixer) {
-                return fixer.replaceTextRange([index, index + char.length], replacement);
+                return fixer.replaceTextRange(
+                  [index, index + char.length],
+                  replacement
+                );
               },
             });
           }

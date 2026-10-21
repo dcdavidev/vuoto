@@ -1,5 +1,7 @@
-import { RuleTester } from 'eslint';
 import { describe, it } from 'vitest';
+
+import { RuleTester } from 'eslint';
+
 import { rules } from './index.js';
 
 describe('rules index', () => {
@@ -15,7 +17,7 @@ describe('rules index', () => {
       valid: ['const x = 1;'],
       invalid: [
         {
-          code: 'const x = "\uFEFF";',
+          code: 'const x = "\u{FEFF}";',
           output: 'const x = "";',
           errors: [{ messageId: 'unexpected' }],
         },
@@ -28,7 +30,7 @@ describe('rules index', () => {
       valid: ['const x = 1;'],
       invalid: [
         {
-          code: 'const x\u00A0= 1;',
+          code: 'const x\u{A0}= 1;',
           output: 'const x = 1;',
           errors: [{ messageId: 'unexpected' }],
         },
@@ -41,7 +43,7 @@ describe('rules index', () => {
       valid: ['const x = 1;'],
       invalid: [
         {
-          code: 'const x = "a\u200Bb";',
+          code: 'const x = "a\u{200B}b";',
           output: 'const x = "ab";',
           errors: [{ messageId: 'unexpected' }],
         },

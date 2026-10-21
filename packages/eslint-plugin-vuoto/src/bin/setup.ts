@@ -7,7 +7,7 @@ ${chalk.cyanBright.bold('✨ Welcome to eslint-plugin-vuoto setup!')}
 To get started, add the following to your ${chalk.bold('eslint.config.js')}:
 
 ${chalk.gray('// eslint.config.js')}
-${chalk.blueBright('import vuoto from \'eslint-plugin-vuoto\';')}
+${chalk.blueBright("import vuoto from 'eslint-plugin-vuoto';")}
 
 ${chalk.gray('export default [')}
 ${chalk.gray('  ...')}

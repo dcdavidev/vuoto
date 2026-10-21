@@ -25,7 +25,7 @@ export async function expandPatterns(patterns: string[]): Promise<string[]> {
       if (st.isDirectory()) {
         const rel = path.relative(process.cwd(), abs) || '.';
         expanded.push(
-          rel === '.' ? '**/*' : `${rel.replaceAll('\\', '/')}` + '/**/*'
+          rel === '.' ? '**/*' : `${rel.replaceAll('\\', '/')}/**/*`
         );
         continue;
       }

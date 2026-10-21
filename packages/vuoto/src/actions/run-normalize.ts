@@ -55,7 +55,7 @@ export async function runNormalize(
     console.log(chalk.dim(`Found ${files.length} file(s) to process\n`));
   }
 
-  let hadIssues = false;
+  let isHadIssues = false;
   let fixedCount = 0;
   let checkedCount = 0;
 
@@ -81,7 +81,7 @@ export async function runNormalize(
     } else {
       checkedCount++;
       if (source !== fixed) {
-        hadIssues = true;
+        isHadIssues = true;
         if (!silent) {
           console.log(
             chalk.redBright('✗'),
@@ -111,7 +111,7 @@ export async function runNormalize(
         );
       }
     } else {
-      if (hadIssues) {
+      if (isHadIssues) {
         console.log(
           chalk.redBright.bold('✗ Issues:'),
           `Found whitespace issues in ${chalk.bold(files.length - checkedCount)} file(s)`,
@@ -126,7 +126,7 @@ export async function runNormalize(
     }
   }
 
-  if (hadIssues && !options.fix) {
+  if (isHadIssues && !options.fix) {
     process.exitCode = 1;
   }
 }

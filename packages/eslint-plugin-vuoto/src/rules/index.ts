@@ -24,7 +24,11 @@ export const rules = {
   ),
   'em-space': createWhitespaceRule(EM_SPACE, 'disallow em space (U+2003)', ' '),
   'en-space': createWhitespaceRule(EN_SPACE, 'disallow en space (U+2002)', ' '),
-  'form-feed': createWhitespaceRule(FORM_FEED, 'disallow form feed (U+000C)', '\n'),
+  'form-feed': createWhitespaceRule(
+    FORM_FEED,
+    'disallow form feed (U+000C)',
+    '\n'
+  ),
   'ideographic-space': createWhitespaceRule(
     IDEOGRAPHIC_SPACE,
     'disallow ideographic space (U+3000)',

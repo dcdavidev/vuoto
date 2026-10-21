@@ -1,8 +1,10 @@
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 import process from 'node:process';
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { expandPatterns } from './expand-patterns.js';
+
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { expandPatterns } from '../src/actions/expand-patterns.js';
 
 describe('expandPatterns', () => {
   const cwd = process.cwd();

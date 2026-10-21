@@ -1,6 +1,8 @@
 import fsp from 'node:fs/promises';
+
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { loadVuotoIgnore } from './load-config.js';
+
+import { loadVuotoIgnore } from '../src/helpers/load-config.js';
 
 describe('loadVuotoIgnore', () => {
   beforeEach(() => {
