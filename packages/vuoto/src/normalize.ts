@@ -13,10 +13,12 @@ import {
   normalizeVisibleMiscSpaces,
   normalizeZeroWidth,
 } from './normalizers/index.js';
+import type { NormalizeOptions } from './types/index.js';
 
 /**
- * Applies all whitespace normalizations in sequence.
+ * Applies whitespace normalizations in sequence.
  * @param input The string to normalize.
+ * @param options Optional configuration to selectively enable or disable normalizers.
  *
  * @returns The normalized string.
  *
@@ -26,31 +28,41 @@ import {
  * const normalized = normalize('Hello\u200BWorld'); // 'HelloWorld'
  * ```
  */
-export function normalize(input: string): string {
+export function normalize(input: string, options?: NormalizeOptions): string {
+  if (!input) {
+    return input;
+  }
+
   let output = input;
 
   // Invisible / zero-width
-  output = normalizeZeroWidth(output);
-  output = normalizeByteOrderMark(output);
-  output = normalizeInvisibleSeparators(output);
+  if (options?.zeroWidth ?? true) output = normalizeZeroWidth(output);
+  if (options?.byteOrderMark ?? true) output = normalizeByteOrderMark(output);
+  if (options?.invisibleSeparators ?? true)
+    output = normalizeInvisibleSeparators(output);
 
   // Non-breaking variants
-  output = normalizeNonBreakingSpace(output);
-  output = normalizeNarrowNoBreakSpace(output);
+  if (options?.nonBreakingSpace ?? true)
+    output = normalizeNonBreakingSpace(output);
+  if (options?.narrowNoBreakSpace ?? true)
+    output = normalizeNarrowNoBreakSpace(output);
 
   // Line / paragraph separators
-  output = normalizeLineSeparator(output);
-  output = normalizeParagraphSeparator(output);
+  if (options?.lineSeparator ?? true) output = normalizeLineSeparator(output);
+  if (options?.paragraphSeparator ?? true)
+    output = normalizeParagraphSeparator(output);
 
   // Visible wide spaces
-  output = normalizeEmSpace(output);
-  output = normalizeEnSpace(output);
-  output = normalizeIdeographicSpace(output);
-  output = normalizeVisibleMiscSpaces(output);
+  if (options?.emSpace ?? true) output = normalizeEmSpace(output);
+  if (options?.enSpace ?? true) output = normalizeEnSpace(output);
+  if (options?.ideographicSpace ?? true)
+    output = normalizeIdeographicSpace(output);
+  if (options?.visibleMiscSpaces ?? true)
+    output = normalizeVisibleMiscSpaces(output);
 
   // Legacy controls
-  output = normalizeFormFeed(output);
-  output = normalizeVerticalTab(output);
+  if (options?.formFeed ?? true) output = normalizeFormFeed(output);
+  if (options?.verticalTab ?? true) output = normalizeVerticalTab(output);
 
   return output;
 }

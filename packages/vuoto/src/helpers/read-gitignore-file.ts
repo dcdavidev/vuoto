@@ -1,6 +1,8 @@
 import fsp from 'node:fs/promises';
 import path from 'node:path';
 
+import { instanceOfNodeError } from './instance-of-node-error.js';
+
 /**
  * Read .gitignore file in a directory, if present.
  * @param dir The directory to read the .gitignore file from.
@@ -18,10 +20,13 @@ export async function readGitignoreFile(dir: string): Promise<string[]> {
   try {
     const content = await fsp.readFile(gitignorePath, 'utf8');
     return content
-      .split('\n')
+      .split(/\r?\n/)
       .map((line) => line.trim())
-      .filter((line) => line && !line.startsWith('#'));
-  } catch {
+      .filter((line) => line.length > 0 && !line.startsWith('#'));
+  } catch (error) {
+    if (instanceOfNodeError(error) && error.code === 'ENOENT') {
+      return [];
+    }
     return [];
   }
 }

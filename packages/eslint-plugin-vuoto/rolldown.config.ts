@@ -2,17 +2,21 @@ import { defineConfig } from 'rolldown';
 
 import pkg from './package.json' with { type: 'json' };
 
+interface PackageJson {
+  dependencies?: Record<string, string>;
+  peerDependencies?: Record<string, string>;
+}
+
+const packageJson = pkg as PackageJson;
+
 const external = [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
+  ...Object.keys(packageJson.dependencies ?? {}),
+  ...Object.keys(packageJson.peerDependencies ?? {}),
   /^node:/,
 ];
 
 export default defineConfig({
-  input: {
-    index: 'src/index.ts',
-    'bin/setup': 'src/bin/setup.ts',
-  },
+  input: 'src/index.ts',
   output: {
     dir: 'dist',
     format: 'esm',

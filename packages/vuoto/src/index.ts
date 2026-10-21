@@ -1,4 +1,5 @@
 export * from './actions/index.js';
+export * from './analyze.js';
 export * from './consts.js';
 export * from './helpers/index.js';
 export * from './normalize.js';

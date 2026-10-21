@@ -1,7 +1,7 @@
 /**
  * A typeguarded version of `instanceof Error` for NodeJS.
  * @param value The value to check.
- * @param errorType The error type to check against.
+ * @param errorType The error constructor to check against (default: Error).
  *
  * @returns True if the value is an instance of the given error type and has NodeJS-specific error properties.
  *
@@ -11,7 +11,7 @@
  * try {
  *   // ...
  * } catch (error) {
- *   if (instanceOfNodeError(error, TypeError)) {
+ *   if (instanceOfNodeError(error)) {
  *     console.error(error.code);
  *   }
  * }
@@ -19,7 +19,7 @@
  */
 export function instanceOfNodeError(
   value: unknown,
-  errorType: ErrorConstructor
+  errorType: ErrorConstructor = Error
 ): value is NodeJS.ErrnoException {
   if (!(value instanceof errorType)) {
     return false;

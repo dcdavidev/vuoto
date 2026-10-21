@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 import { VUOTO_IGNORE_FILENAME } from '../consts.js';
+import { instanceOfNodeError } from './instance-of-node-error.js';
 
 /**
  * Load patterns from .vuotoignore file.
@@ -19,10 +20,13 @@ export async function loadVuotoIgnore(cwd: string): Promise<string[]> {
   try {
     const content = await fs.readFile(vuotoignorePath, 'utf8');
     return content
-      .split('\n')
+      .split(/\r?\n/)
       .map((line) => line.trim())
-      .filter((line) => line && !line.startsWith('#'));
-  } catch {
+      .filter((line) => line.length > 0 && !line.startsWith('#'));
+  } catch (error) {
+    if (instanceOfNodeError(error) && error.code === 'ENOENT') {
+      return [];
+    }
     return [];
   }
 }

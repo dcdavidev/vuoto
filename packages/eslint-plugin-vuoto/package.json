@@ -38,9 +38,6 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "bin": {
-    "vuoto-setup": "./dist/bin/setup.js"
-  },
   "files": [
     "dist"
   ],
@@ -54,7 +51,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "chalk": "^5.6.2",
     "tslib": "^2.8.1",
     "vuoto": "workspace:*"
   },

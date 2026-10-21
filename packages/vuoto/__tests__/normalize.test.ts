@@ -3,6 +3,10 @@ import { describe, expect, it } from 'vitest';
 import { normalize } from '../src/normalize.js';
 
 describe('normalize', () => {
+  it('should handle empty input', () => {
+    expect(normalize('')).toBe('');
+  });
+
   it('should remove zero-width space', () => {
     expect(normalize('Hello\u{200B}World')).toBe('HelloWorld');
   });
@@ -65,5 +69,17 @@ describe('normalize', () => {
         '\u{FEFF}Hello\u{200B} \u{A0}World' + String.fromCharCode(0x20_28)
       )
     ).toBe('Hello  World\n');
+  });
+
+  it('should respect custom options when disabling zero-width normalization', () => {
+    const input = 'Hello\u{200B} \u{A0}World';
+    const result = normalize(input, { zeroWidth: false });
+    expect(result).toBe('Hello\u{200B}  World');
+  });
+
+  it('should respect custom options when disabling non-breaking space normalization', () => {
+    const input = 'Hello\u{200B} \u{A0}World';
+    const result = normalize(input, { nonBreakingSpace: false });
+    expect(result).toBe('Hello \u{A0}World');
   });
 });

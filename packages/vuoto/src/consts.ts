@@ -108,6 +108,14 @@ export const ZERO_WIDTH = new RegExp(
 );
 
 /**
+ * Combined pattern matching all supported problematic whitespace and invisible characters.
+ */
+export const ALL_PROBLEMATIC_WHITESPACE = new RegExp(
+  String.raw`[\u000B\u000C\u00A0\u1680\u180E\u2000-\u200D\u2028\u2029\u202F\u205F\u2060\u3000\uFEFF]`,
+  'g'
+);
+
+/**
  * Map of Unicode characters to their human-readable names.
  */
 export const UNICODE_NAME_MAP: Record<string, string> = {
