@@ -1,6 +1,6 @@
 {
   "name": "vuoto",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "private": false,
   "description": "Modern whitespace normalizer CLI with enhanced output and developer experience - cut the noise, clean the void",
   "keywords": [
@@ -60,7 +60,6 @@
     "build:pkg": "rolldown -c rolldown.config.ts",
     "build:types": "tsc -p tsconfig.json",
     "dev": "rolldown -c rolldown.config.ts -w",
-    "publish": "pnpm run release",
     "release": "pnpm publish --access public --no-git-checks",
     "test": "vitest run"
   },

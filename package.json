@@ -1,6 +1,6 @@
 {
   "name": "root",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "turbo run build",
@@ -60,7 +60,7 @@
     "prettier-plugin-toml": "^2.0.6",
     "release-it": "^19.2.4",
     "rolldown": "1.0.0-rc.5",
-    "turbo": "^2.8.10",
+    "turbo": "^2.11.10",
     "typescript": "5.9.3",
     "vitest": "^4.0.18"
   },
