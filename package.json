@@ -29,6 +29,8 @@
     }
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
     "@cspell/cspell-types": "^9.6.4",
@@ -37,6 +39,7 @@
     "@release-it/conventional-changelog": "^10.0.5",
     "@spellbookx/recipes": "^1.0.0",
     "@turbo/gen": "^2.8.10",
+    "changeset-conventional-commits": "^1.0.4",
     "commitizen": "^4.3.1",
     "commitlint-config-spellbookx": "^1.0.0",
     "conventional-changelog-conventionalcommits": "^9.1.0",
