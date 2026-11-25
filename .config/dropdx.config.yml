@@ -1,7 +1,0 @@
-'version': '0.4.1'
-'conventionalCommits': true
-'engine': 'auto'
-'skipBuild': false
-'skipGit': false
-'skipPublish': false
-'allowDirty': false
