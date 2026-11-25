@@ -15,6 +15,7 @@ minimumReleaseAgeExclude:
   - cz-config-spellbookx@2.0.0
   - eslint-plugin-spellbookx@2.0.0
   - prettier-config-spellbookx@2.0.0
+  - '@dcdavidev/dropdx@0.4.1'
 
 publicHoistPattern:
   - '*prettier-plugin-*'

@@ -198,8 +198,8 @@ importers:
         specifier: ^21.2.4
         version: 21.2.4
       '@dcdavidev/dropdx':
-        specifier: ^0.4.0
-        version: 0.4.0
+        specifier: ^0.4.1
+        version: 0.4.1(@typescript/typescript6@6.0.2)
       '@spellbookx/recipes':
         specifier: ^2.0.0
         version: 2.0.0
@@ -886,8 +886,8 @@ packages:
     resolution: {integrity: sha512-W4fUt6tF5Z1CMecP6FTB72pv9zdzO2RB4A3jy5ciPjrAKaRwVqvu0djCxMZAGzZiKVBNAIkJDPaAmY+rCG5TRg==}
     engines: {node: '>=22'}
 
-  '@dcdavidev/dropdx@0.4.0':
-    resolution: {integrity: sha512-x7qPXthm7X6TG15SoZW2rWQB799aYBul9yQWl+MuMkbH+Yfn2snlYWdyJBE/Ow4SuVztignjgndUYwLhigc/jw==}
+  '@dcdavidev/dropdx@0.4.1':
+    resolution: {integrity: sha512-1tAwTJCXxp1uKzMom/yt6odoxx5fRhBa2/2yYgyW4Saz9rbTFStI7YKrmJpIjvwXuKh0QQXIOqKMlp4aEsXVxA==}
     hasBin: true
 
   '@dual-bundle/import-meta-resolve@4.2.1':
@@ -4917,7 +4917,12 @@ snapshots:
       luxon: 3.7.2
       type-fest: 5.10.0
 
-  '@dcdavidev/dropdx@0.4.0': {}
+  '@dcdavidev/dropdx@0.4.1(@typescript/typescript6@6.0.2)':
+    dependencies:
+      cosmiconfig: 9.0.2(@typescript/typescript6@6.0.2)
+      jsonc-parser: 3.3.1
+    transitivePeerDependencies:
+      - typescript
 
   '@dual-bundle/import-meta-resolve@4.2.1': {}
 

@@ -1,5 +1,13 @@
 # eslint-plugin-vuoto
 
+## 1.0.1
+
+### Patch Changes
+
+- chore(release): automated patch release bump
+- Updated dependencies []:
+  - vuoto@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
