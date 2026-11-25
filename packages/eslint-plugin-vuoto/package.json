@@ -25,7 +25,7 @@
     "directory": "packages/eslint-plugin-vuoto"
   },
   "license": "MIT",
-  "author": "Davide Di Criscito",
+  "author": "Davide Di Criscito <info@dcdavidev.me>",
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
@@ -42,25 +42,24 @@
     "dist"
   ],
   "scripts": {
-    "build": "rm -rf dist && pnpm run build:pkg && pnpm run build:types",
-    "build:pkg": "rolldown -c rolldown.config.ts",
-    "build:types": "tsc -p tsconfig.json",
-    "dev": "rolldown -c rolldown.config.ts -w",
-    "release": "pnpm publish --access public --no-git-checks",
-    "test": "vitest run"
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist coverage .turbo",
+    "dev": "tsc -p tsconfig.build.json --watch --preserveWatchOutput",
+    "lint:types": "tsc -p tsconfig.json",
+    "test": "vitest run --no-fsModuleCache --passWithNoTests --coverage"
   },
   "dependencies": {
-    "tslib": "^2.8.1",
     "vuoto": "workspace:*"
   },
   "devDependencies": {
     "@types/eslint": "^9.6.1",
-    "@types/node": "^25.0.9",
-    "eslint": "^9.39.2",
-    "typescript": "^5.9.3"
+    "@types/node": "^26.6.6",
+    "eslint": "^10.15.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.1"
   },
   "peerDependencies": {
-    "eslint": ">=9.0.0"
+    "eslint": ">10.0.0"
   },
   "publishConfig": {
     "access": "public"

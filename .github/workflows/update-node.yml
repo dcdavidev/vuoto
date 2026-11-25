@@ -1,0 +1,39 @@
+name: Update Node.js version
+
+on:
+  schedule:
+    - cron: '0 7 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-node:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check and update Node.js version
+        id: node
+        run: pnpm update:node
+
+      - name: Create Pull Request
+        if: steps.node.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: 'build(deps): bump node to ${{ steps.node.outputs.version }}'
+          title: 'build(deps): bump node to ${{ steps.node.outputs.version }}'
+          branch: chore/update-node
+          delete-branch: true

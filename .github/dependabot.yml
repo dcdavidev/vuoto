@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=https://www.schemastore.org/dependabot-2.0.json
+# Dependabot configuration
+# Documentation: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+
+version: 2
+
+updates:
+  # Weekly updates for direct npm dependencies and the pnpm package manager.
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    # Align PR titles and commits with Conventional Commits (commitlint).
+    commit-message:
+      prefix: 'build'
+      prefix-development: 'build'
+      include: 'scope'
+    # Exclude packages managed by dedicated workflows or pinned intentionally.
+    ignore:
+      # Synced with .nvmrc by .github/workflows/update-node.yml.
+      - dependency-name: '@types/node'
+      # Upgraded with @turbo/codemod by .github/workflows/update-turbo.yml.
+      - dependency-name: 'turbo'
+      # Pinned to the TypeScript 6 compatibility alias alongside @typescript/native.
+      - dependency-name: 'typescript'
+    # Group coupled packages into single PRs to reduce noise and avoid version skew.
+    # Order matters: Dependabot assigns a package to the first matching group.
+    groups:
+      # Group the Spellbookx developer toolchain (linting, formatting, spelling, commits, and hooks)
+      # so preset packages and their peer tools upgrade together compatibly.
+      spellbookx:
+        patterns:
+          - '*-commitlint-*'
+          - '*-spellbookx'
+          - '@*/eslint-config*'
+          - '@*/eslint-plugin*'
+          - '@*/prettier-config*'
+          - '@commitlint/*'
+          - '@cspell/*'
+          - '@eslint/*'
+          - '@prettier/*'
+          - '@spellbookx/*'
+          - 'commitlint-*'
+          - 'conventional-changelog-conventionalcommits'
+          - 'cspell'
+          - 'cspell-*'
+          - 'cz-*'
+          - 'czg'
+          - 'eslint'
+          - 'eslint-config-*'
+          - 'eslint-plugin-*'
+          - 'lefthook'
+          - 'prettier'
+          - 'prettier-config-*'
+          - 'prettier-plugin-*'
+          - 'spellbookx'
+      # Keep Vitest and its coverage/adapter packages on matching versions.
+      vitest:
+        patterns:
+          - '@vitest/*'
+          - 'vitest'
+      # Keep Changesets packages and the Conventional Commits bridge updated together.
+      changesets:
+        patterns:
+          - '@changesets/*'
+          - 'changeset-conventional-commits'
+
+  # Weekly updates for GitHub Actions used in .github/workflows/.
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    # Use the `ci` Conventional Commit type for workflow action bumps.
+    commit-message:
+      prefix: 'ci'
+      include: 'scope'
+    # Bundle all workflow action updates into a single weekly PR.
+    groups:
+      github-actions:
+        patterns:
+          - '*'

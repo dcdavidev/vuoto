@@ -1,5 +1,5 @@
 /**
- * Options for initializing the .vuotoignore configuration file.
+ * Options for initializing the Vuoto configuration file.
  * @property force Overwrite existing configuration file if present.
  * @property silent Suppress all console output.
  * @property verbose Show detailed information.

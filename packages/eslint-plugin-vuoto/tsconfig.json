@@ -1,17 +1,5 @@
 {
-  "extends": "@dcdavidev/tsconfig/node-lib.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist",
-    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "types": ["node"]
-  },
-  "include": ["src/**/*.ts"],
-  "references": [
-    {
-      "path": "../vuoto/tsconfig.json"
-    }
-  ]
+  "extends": "../../tsconfig.base.json",
+  "include": ["src/**/*", "tests/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,5 +1,5 @@
 import { DEFAULT_IGNORES } from '../consts.js';
-import { loadVuotoIgnore } from './load-config.js';
+import { loadVuotoConfig } from './load-config.js';
 import { readGitignoreFile } from './read-gitignore-file.js';
 
 export interface ResolveIgnoresOptions {
@@ -11,7 +11,7 @@ export interface ResolveIgnoresOptions {
 }
 
 /**
- * Merge built-in ignores with user .vuotoignore patterns and optional .gitignore patterns.
+ * Merge built-in ignores with Vuoto config and optional .gitignore patterns.
  * @param cwd Current working directory.
  * @param options Options to customize ignore resolution.
  * @returns Combined and deduplicated ignore patterns.
@@ -24,7 +24,8 @@ export async function resolveIgnores(
   cwd: string,
   options?: ResolveIgnoresOptions
 ): Promise<string[]> {
-  const userPatterns = await loadVuotoIgnore(cwd);
+  const config = await loadVuotoConfig(cwd);
+  const userPatterns = config?.ignore ?? [];
   const gitignorePatterns =
     (options?.includeGitignore ?? true) ? await readGitignoreFile(cwd) : [];
 

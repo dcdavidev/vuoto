@@ -61,3 +61,11 @@ desktop.ini
 **/*.hbs
 **/*.mustache
 **/*.min.*
+
+# AI Agents and related files
+.agents/
+.claude/
+.openhands/
+
+# Release configs
+.changeset/

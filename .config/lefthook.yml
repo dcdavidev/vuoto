@@ -1,0 +1,22 @@
+# Lefthook configuration
+# Documentation: https://lefthook.dev/configuration/
+#
+# Skip every hook for one command: LEFTHOOK=0 git commit ...
+
+assert_lefthook_installed: true
+
+pre-commit:
+  piped: true
+  jobs:
+    - name: eslint
+      run: pnpm exec eslint --no-warn-ignored --fix {staged_files}
+      stage_fixed: true
+    - name: prettier
+      run: pnpm exec prettier --ignore-unknown --write {staged_files}
+      stage_fixed: true
+
+commit-msg:
+  jobs:
+    - name: commitlint
+      run: pnpm exec commitlint --edit {1}
+      fail_text: 'Use Conventional Commits, for example "feat: add a page".'

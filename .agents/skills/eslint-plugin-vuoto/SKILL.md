@@ -218,10 +218,10 @@ export default [
 
 ## 7. Pairing with the `vuoto` CLI
 
-| Tool                      | Focus                                  | Scope                                                                   |
-| :------------------------ | :------------------------------------- | :---------------------------------------------------------------------- |
-| **`eslint-plugin-vuoto`** | Real-time JS, TS, and JSX linting      | Runs inside ESLint (`eslint --fix`), editor language server, pre-commit |
-| **`vuoto` CLI**           | Fast repository-wide scanning & fixing | Markdown, JSON, YAML, lockfiles, `.vuotoignore`, CI pipeline scripts    |
+| Tool                      | Focus                                  | Scope                                                                       |
+| :------------------------ | :------------------------------------- | :-------------------------------------------------------------------------- |
+| **`eslint-plugin-vuoto`** | Real-time JS, TS, and JSX linting      | Runs inside ESLint (`eslint --fix`), editor language server, pre-commit     |
+| **`vuoto` CLI**           | Fast repository-wide scanning & fixing | Markdown, JSON, YAML, lockfiles, Vuoto config files and schemas, CI scripts |
 
 Recommended combined workflow:
 

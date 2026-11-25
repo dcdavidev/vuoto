@@ -1,35 +1,54 @@
 {
-  "version": 1,
+  "version": 2,
   "skills": {
-    "spellbookx-commitlint": {
-      "source": "dcdavidev/spellbookx",
+    "dropdx": {
+      "source": "dcdavidev/dropdx",
+      "commit": "b4b8feacc80db5be747c4db7fb8630fdbbbcb0f4",
       "sourceType": "github",
-      "skillPath": ".agents/skills/spellbookx-commitlint/SKILL.md",
-      "computedHash": "dc5e3935ab9510974a5f5ea1928b89687442f9dc5380070211c5106766ab1677"
+      "skillPath": ".agents/skills/dropdx/SKILL.md",
+      "computedHash": "0b8d8f7c83a5e6d7415cc80211134ef59d34e9d8e52953cc43d78dd8b83a3073"
     },
-    "spellbookx-cspell": {
+    "spellbookx-commitlint-config": {
       "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
       "sourceType": "github",
-      "skillPath": ".agents/skills/spellbookx-cspell/SKILL.md",
-      "computedHash": "6d0c5acb2bbf3b08aaa82632ce513c1c1f239a216a8d7786f20978dcd128579b"
+      "skillPath": ".agents/skills/spellbookx-commitlint-config/SKILL.md",
+      "computedHash": "737fa8b84ca67509f9834cbeeda65692246e918d2b6784c2cf762575848d2c16"
     },
-    "spellbookx-eslint": {
+    "spellbookx-cspell-config": {
       "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
       "sourceType": "github",
-      "skillPath": ".agents/skills/spellbookx-eslint/SKILL.md",
-      "computedHash": "531938f0770e2f82c3085a122d5ea0502038a37bd5700e584bc42ca7e37d20d8"
+      "skillPath": ".agents/skills/spellbookx-cspell-config/SKILL.md",
+      "computedHash": "068680bd08f17efa0ddab96227c96bb369b70d4479b187d3666ae829bd488f37"
     },
-    "spellbookx-prettier": {
+    "spellbookx-cz-config": {
       "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
       "sourceType": "github",
-      "skillPath": ".agents/skills/spellbookx-prettier/SKILL.md",
-      "computedHash": "faa25f4df09c19fd321695631d6701e03c1e08669b62060395d1bf03b01bb2f9"
+      "skillPath": ".agents/skills/spellbookx-cz-config/SKILL.md",
+      "computedHash": "98a5fd0ea3fd41b4614bc9710f8a3afb785b4db073bb1a65c62aabd50be32ff4"
+    },
+    "spellbookx-eslint-plugin": {
+      "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/spellbookx-eslint-plugin/SKILL.md",
+      "computedHash": "ff00fa67aed4de96dced43627d56f24e7aa688a5573800f84d4cd27c5dcaab07"
+    },
+    "spellbookx-prettier-config": {
+      "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/spellbookx-prettier-config/SKILL.md",
+      "computedHash": "256426e95f6c6891ab2e7f5dc0e9c50b7f1be2dfb2050edc0675d61b7bfb51bc"
     },
     "spellbookx-setup": {
       "source": "dcdavidev/spellbookx",
+      "commit": "82f385f2f03768ffcd1feba09af1af74e0930341",
       "sourceType": "github",
       "skillPath": ".agents/skills/spellbookx-setup/SKILL.md",
-      "computedHash": "394c5bd51acc9dcd8530c7e6cb49fddcbaf4722bc5eb7f4f8f2e47b1a33c7e47"
+      "computedHash": "8a3038a195fe96129c20691631aa1318d2edcb29ade70760ecb9c5189b633e29"
     }
   }
 }

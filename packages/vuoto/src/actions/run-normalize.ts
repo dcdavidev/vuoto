@@ -15,7 +15,7 @@ import type {
 } from '../types/index.js';
 
 /**
- * Main logic: load .vuotoignore, collect files, run normalize with enhanced output.
+ * Main logic: load Vuoto config, collect files, run normalize with enhanced output.
  * @param options The options for running the normalization.
  * @returns The structured execution result.
  * @example
@@ -40,7 +40,7 @@ export async function runNormalize(
     console.log(chalk.dim('Resolving ignore patterns...'));
   }
 
-  // Load ignore patterns from .vuotoignore, .gitignore, and defaults
+  // Load ignore patterns from Vuoto config, .gitignore, and defaults
   const resolvedIgnores = await resolveIgnores(process.cwd(), {
     includeGitignore: gitignore,
   });
@@ -91,9 +91,9 @@ export async function runNormalize(
     try {
       const source = await fsp.readFile(file, 'utf8');
       const fixed = normalize(source, normalizeOptions);
-      const fileHasIssues = source !== fixed;
+      const isFileHasIssues = source !== fixed;
 
-      if (fileHasIssues) {
+      if (isFileHasIssues) {
         issuesCount++;
         const issues =
           verbose || !fix ? findWhitespaceIssues(source) : undefined;
@@ -183,8 +183,11 @@ export async function runNormalize(
   }
 
   // Summary
+  /* eslint-disable unicorn/prefer-ternary -- Keep multi-line output branches readable. */
   if (!silent) {
     console.log(); // Blank line separator
+    // Keep multi-line output branches readable instead of nesting ternaries.
+
     if (fix) {
       if (fixedCount > 0) {
         console.log(
@@ -212,6 +215,7 @@ export async function runNormalize(
       }
     }
   }
+  /* eslint-enable unicorn/prefer-ternary */
 
   const result: RunNormalizeResult = {
     totalFiles: files.length,

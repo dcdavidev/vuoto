@@ -1,12 +1,14 @@
 import fsp from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 import chalk from 'chalk';
 
-import { VUOTO_IGNORE_FILENAME } from '../consts.js';
+import { VUOTO_CONFIG_FILENAME } from '../consts.js';
+import { isNodeError } from '../helpers/instance-of-node-error.js';
+import { loadVuotoConfig } from '../helpers/load-config.js';
 import type { InitConfigOptions } from '../types/index.js';
 
+/* eslint-disable unicorn/prefer-options-parameter -- Preserve the existing public API. */
 /**
  * Result returned by initConfig.
  */
@@ -21,37 +23,13 @@ export interface InitConfigResult {
   path: string;
 }
 
-const DEFAULT_VUOTOIGNORE_TEMPLATE = `# Vuoto Ignore File
-# Add patterns here to exclude files from whitespace normalization
-# One pattern per line, like .gitignore
-
-# Build outputs
-dist/**
-build/**
-.next/**
-.nuxt/**
-out/**
-
-# Dependencies
-node_modules/
-
-# Compiled files
-*.min.js
-*.min.css
-*.bundle.js
-
-# Lock files
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-bun.lockb
-
-# Logs
-*.log
+const DEFAULT_VUOTO_CONFIG_TEMPLATE = `{
+  "ignore": []
+}
 `;
 
 /**
- * Initialize a .vuotoignore file in the target directory.
+ * Initialize a Vuoto JSON config file in the target directory.
  * @param cwd Current working directory (defaults to process.cwd()).
  * @param options Configuration options.
  * @returns Object indicating if created and file path.
@@ -64,45 +42,41 @@ export async function initConfig(
   cwd: string = process.cwd(),
   options: InitConfigOptions = {}
 ): Promise<InitConfigResult> {
-  const targetPath = path.join(cwd, VUOTO_IGNORE_FILENAME);
+  const targetPath = path.join(cwd, VUOTO_CONFIG_FILENAME);
   const { silent = false, force = false } = options;
+  const existingConfig = await loadVuotoConfig(cwd);
 
-  let exists = false;
+  let hasTarget = false;
   try {
     await fsp.access(targetPath);
-    exists = true;
-  } catch {
-    // File does not exist
+    hasTarget = true;
+  } catch (error) {
+    if (!isNodeError(error) || error.code !== 'ENOENT') {
+      throw error;
+    }
   }
 
-  if (exists && !force) {
+  if (!force && (existingConfig || hasTarget)) {
+    const existingPath = existingConfig?.filepath ?? targetPath;
     if (!silent) {
       console.log(
         chalk.yellow('ℹ'),
-        `${chalk.cyanBright(VUOTO_IGNORE_FILENAME)} already exists at ${chalk.dim(targetPath)}`
+        `Vuoto config already exists at ${chalk.dim(existingPath)}`
       );
     }
-    return { created: false, path: targetPath };
+    return { created: false, path: existingPath };
   }
 
-  let content = DEFAULT_VUOTOIGNORE_TEMPLATE;
-  try {
-    const currentDir = path.dirname(fileURLToPath(import.meta.url));
-    const assetPath = path.resolve(currentDir, '../../assets/.vuotoignore');
-    content = await fsp.readFile(assetPath, 'utf8');
-  } catch {
-    // Fall back to template string if asset file is unavailable
-  }
-
-  await fsp.writeFile(targetPath, content, 'utf8');
+  await fsp.writeFile(targetPath, DEFAULT_VUOTO_CONFIG_TEMPLATE, 'utf8');
 
   if (!silent) {
     console.log(
       chalk.greenBright('✨ Created'),
-      chalk.cyanBright(VUOTO_IGNORE_FILENAME),
+      chalk.cyanBright(VUOTO_CONFIG_FILENAME),
       chalk.dim(`at ${targetPath}`)
     );
   }
 
   return { created: true, path: targetPath };
 }
+/* eslint-enable unicorn/prefer-options-parameter */

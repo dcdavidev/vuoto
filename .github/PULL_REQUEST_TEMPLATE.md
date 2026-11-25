@@ -47,7 +47,7 @@ Before submitting this PR, please verify the following:
 - [ ] My code adheres to the style guidelines and architectural rules of this project.
 - [ ] I have executed `pnpm run lint` and `pnpm run fmt` without errors.
 - [ ] I have executed `pnpm run spellcheck` without errors (new words added to `.config/cspell/custom.txt`).
-- [ ] I have added unit tests covering my changes in the corresponding `__tests__/` directory.
+- [ ] I have added unit tests covering my changes in the corresponding `tests/` directory.
 - [ ] All unit tests pass locally via `pnpm run test`.
 - [ ] The full CI check succeeds: `pnpm run check:ci`.
 - [ ] I have updated the relevant documentation ([`README.md`](README.md), package docs, etc.) where appropriate.

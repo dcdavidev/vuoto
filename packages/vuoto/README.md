@@ -18,7 +18,7 @@ Invisible zero-width characters, non-breaking spaces, legacy line separators, an
 - 🎯 **Deep Unicode Normalization** — Detects and fixes 26+ distinct types of invisible, zero-width, non-breaking, and legacy control whitespace.
 - 🔍 **Detailed Diagnostics** — Pinpoints exact line and column coordinates alongside Unicode code points and human-readable character names.
 - ⚡ **High Performance** — Fast batch file scanning powered by `fast-glob` with smart caching and binary file filtering.
-- 🛡️ **Smart Ignore Resolution** — Built-in ignore rules, `.vuotoignore` configuration, and automatic `.gitignore` discovery.
+- 🛡️ **Smart Ignore Resolution** — Built-in ignore rules, Cosmiconfig configuration, and automatic `.gitignore` discovery.
 - 🎨 **Enhanced Terminal UX** — Beautiful, informative colored terminal reports with verbose drill-downs and quiet CI mode.
 - 🧩 **Comprehensive Programmatic API** — Pure TypeScript module with first-class type definitions for string normalization, detection, and file batch processing.
 
@@ -71,7 +71,7 @@ Options:
   --silent              suppress all output except fatal errors
 
 Commands:
-  init [options]        scaffold a .vuotoignore file with smart defaults
+  init [options]        scaffold a vuoto.config.json file
 ```
 
 ### Examples
@@ -95,7 +95,7 @@ vuoto "src/**" --fix --exclude "**/fixtures/**" "**/*.min.js"
 # Run silently in CI scripts (exits with code 1 if issues exist)
 vuoto --silent
 
-# Generate a .vuotoignore file
+# Generate a vuoto.config.json file
 vuoto init
 ```
 
@@ -128,40 +128,25 @@ vuoto init
 
 ## Configuration
 
-### `.vuotoignore`
+### Config files
 
-Create a `.vuotoignore` file in your repository root to ignore specific paths (using standard Git ignore syntax).
+Vuoto discovers a config file in the workspace root (`vuoto.config.json`, `.jsonc`, `.js`, `.cjs`, `.mjs`, `.yaml`, `.yml`, or `.toml`). If none is present, it checks the corresponding `vuoto.*` files in `.config/`. Add paths to the `ignore` array:
 
-Generate a configuration file automatically:
+Example `vuoto.config.json`:
 
-```bash
-vuoto init
+```json
+{
+  "ignore": ["dist/**", "build/**", "node_modules/**", "*.min.js"]
+}
 ```
 
-Example `.vuotoignore`:
+Scaffold the default JSON config with `vuoto init`. Use `vuoto init --force` to overwrite the root `vuoto.config.json`.
 
-```ignore
-# Build and bundle outputs
-dist/**
-build/**
-.next/**
-out/**
-
-# Dependencies
-node_modules/**
-
-# Minified and binary files
-*.min.js
-*.min.css
-
-# Lockfiles
-pnpm-lock.yaml
-package-lock.json
-```
+JSON and YAML representations of the config schema are in the repository root: [`schemas/vuoto.schema.json`](../../schemas/vuoto.schema.json) and [`schemas/vuoto.schema.yaml`](../../schemas/vuoto.schema.yaml).
 
 ### Git Integration
 
-`vuoto` automatically reads your root `.gitignore` file and includes its patterns in addition to built-in ignores and `.vuotoignore`. To disable `.gitignore` resolution, pass `--no-gitignore`.
+`vuoto` automatically reads your root `.gitignore` file and includes its patterns in addition to built-in ignores and config `ignore` patterns. To disable `.gitignore` resolution, pass `--no-gitignore`.
 
 ---
 
@@ -252,7 +237,7 @@ console.log(`Has remaining issues: ${result.hasIssues}`);
 
 ### `initConfig(cwd?, options?)`
 
-Scaffold a `.vuotoignore` configuration file programmatically.
+Scaffold a `vuoto.config.json` configuration file programmatically.
 
 ```typescript
 import { initConfig } from 'vuoto';

@@ -11,13 +11,13 @@
  * try {
  *   // ...
  * } catch (error) {
- *   if (instanceOfNodeError(error)) {
+ *   if (isNodeError(error)) {
  *     console.error(error.code);
  *   }
  * }
  * ```
  */
-export function instanceOfNodeError(
+export function isNodeError(
   value: unknown,
   errorType: ErrorConstructor = Error
 ): value is NodeJS.ErrnoException {
@@ -33,3 +33,5 @@ export function instanceOfNodeError(
     typeof candidate.errno === 'number'
   );
 }
+
+export { isNodeError as instanceOfNodeError };

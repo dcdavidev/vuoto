@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Vuoto Configuration",
+  "description": "Configuration for Vuoto whitespace normalization.",
+  "type": "object",
+  "properties": {
+    "ignore": {
+      "description": "Paths and glob patterns to exclude from normalization.",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

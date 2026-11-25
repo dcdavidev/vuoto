@@ -32,7 +32,12 @@ export const DEFAULT_IGNORES: string[] = [
 ];
 
 /**
- * Name of the vuoto ignore file.
+ * Default name for a Vuoto configuration file.
+ */
+export const VUOTO_CONFIG_FILENAME = 'vuoto.config.json';
+
+/**
+ * @deprecated Vuoto now reads ignore patterns from its configuration file.
  */
 export const VUOTO_IGNORE_FILENAME = '.vuotoignore';
 

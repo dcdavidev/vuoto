@@ -1,4 +1,4 @@
-# EditorConfig is awesome: https://EditorConfig.org
+# EditorConfig is awesome: https://editorconfig.org
 
 # Top-level EditorConfig
 root=true
@@ -12,19 +12,53 @@ trim_trailing_whitespace=true
 indent_style=space
 indent_size=2
 
-# Astro
-[*.astro]
-indent_style=tab
-indent_size=4
+# JavaScript, TypeScript, and modern modules
+[*.{js,jsx,ts,tsx,mjs,cjs,mts,cts}]
+indent_style=space
+indent_size=2
+max_line_length=80
 
-# Markdown fix
+# Web frameworks
+[*.{astro,svelte,vue}]
+indent_style=space
+indent_size=2
+
+# JSON, JSON5, JSONC, and configuration files
+[*.{json,json5,jsonc}]
+indent_style=space
+indent_size=2
+
+# Runtime configurations
+[.*rc]
+indent_style=space
+indent_size=2
+
+# YAML and workflow configurations
+[*.{yml,yaml}]
+indent_style=space
+indent_size=2
+
+# Markdown documentation
 [*.md]
 trim_trailing_whitespace=false
 
-# Toml
+# TOML configuration files
 [*.toml]
+indent_style=space
+indent_size=2
 max_line_length=100
 
+# XML and SVG graphics
+[*.{xml,svg}]
+indent_style=space
+indent_size=2
+
+# Shell scripts
+[*.{sh,bash,zsh}]
+indent_style=space
+indent_size=2
+
+# Makefiles require hard tabs
 [Makefile]
 indent_style=tab
 indent_size=4

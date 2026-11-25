@@ -1,8 +1,21 @@
 packages:
-  - apps/*
   - packages/*
 
-onlyBuiltDependencies:
-  - core-js-pure
-  - esbuild
-  - lefthook
+allowBuilds:
+  core-js-pure: true
+  esbuild: true
+  lefthook: true
+
+engineStrict: true
+
+minimumReleaseAgeExclude:
+  - '@spellbookx/recipes@2.0.0'
+  - commitlint-config-spellbookx@2.0.0
+  - cspell-config-spellbookx@2.0.0
+  - cz-config-spellbookx@2.0.0
+  - eslint-plugin-spellbookx@2.0.0
+  - prettier-config-spellbookx@2.0.0
+
+publicHoistPattern:
+  - '*prettier-plugin-*'
+  - '@prettier/plugin-*'

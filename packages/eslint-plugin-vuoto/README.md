@@ -203,12 +203,14 @@ export default [
 
 ## Pairing with `vuoto`
 
-| Tool                                                                       | Focus                                | When to Use                                                               |
-| :------------------------------------------------------------------------- | :----------------------------------- | :------------------------------------------------------------------------ |
-| **`eslint-plugin-vuoto`**                                                  | Real-time JS/TS linting & formatting | Editor feedback, pre-commit lint stages, pull request CI                  |
-| **[`vuoto`](https://github.com/dcdavidev/vuoto/tree/main/packages/vuoto)** | Fast whole-repository cleanup        | Markdown, JSON, YAML, configs, codebases, `.vuotoignore` batch processing |
+| Tool                                                                       | Focus                                | When to Use                                                |
+| :------------------------------------------------------------------------- | :----------------------------------- | :--------------------------------------------------------- |
+| **`eslint-plugin-vuoto`**                                                  | Real-time JS/TS linting & formatting | Editor feedback, pre-commit lint stages, pull request CI   |
+| **[`vuoto`](https://github.com/dcdavidev/vuoto/tree/main/packages/vuoto)** | Fast whole-repository cleanup        | Markdown, JSON, YAML, config files, schemas, and codebases |
 
 ---
+
+Vuoto config schemas are maintained at the repository root: [JSON](../../schemas/vuoto.schema.json) and [YAML](../../schemas/vuoto.schema.yaml).
 
 ## License
 

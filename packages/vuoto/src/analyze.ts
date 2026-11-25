@@ -71,7 +71,7 @@ export function findWhitespaceIssues(input: string): WhitespaceIssue[] {
   // Build index of line start offsets for efficient coordinate calculation
   const lineStarts = [0];
   for (let i = 0; i < input.length; i++) {
-    if (input.charCodeAt(i) === 10) {
+    if (input.codePointAt(i) === 10) {
       lineStarts.push(i + 1);
     }
   }

@@ -1,0 +1,39 @@
+name: Update Turborepo
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-turbo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Update turbo and run codemod
+        id: turbo
+        run: pnpm update:turbo
+
+      - name: Create Pull Request
+        if: steps.turbo.outputs.updated == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          commit-message: 'build(deps-dev): bump turbo to ${{ steps.turbo.outputs.version }}'
+          title: 'build(deps-dev): bump turbo to ${{ steps.turbo.outputs.version }}'
+          branch: chore/update-turbo
+          delete-branch: true

@@ -19,6 +19,7 @@ export default defineConfig({
   input: {
     index: 'src/index.ts',
     cli: 'src/cli.ts',
+    command: 'src/command.ts',
     consts: 'src/consts.ts',
   },
   output: {

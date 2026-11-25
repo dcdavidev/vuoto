@@ -15,7 +15,7 @@
 - 🌈 **Beautiful CLI**: Enhanced terminal output with progress tracking and detailed reporting.
 - 🤖 **AI Agent Skills**: Built-in `.agents/skills` enabling AI coding assistants to automatically detect, diagnose, and clean invisible whitespace.
 - ⚡ **Turbo Powered**: Built as a monorepo for maximum performance and reliability.
-- 🔧 **Highly Configurable**: Supports `.vuotoignore` for custom exclusions.
+- 🔧 **Highly Configurable**: Supports Cosmiconfig configuration files for custom exclusions, with [JSON](./schemas/vuoto.schema.json) and [YAML](./schemas/vuoto.schema.yaml) schemas.
 
 ## Packages
 
@@ -56,10 +56,10 @@ export default [...vuoto.configs.recommended];
 
 ### Available Skills
 
-| Skill                     | Description                                                                                                                                                                                                                    | Location                                                                              |
-| :------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
-| **`vuoto`**               | Guided detection, diagnosis, and cleanup of invisible, zero-width, non-breaking, and irregular Unicode whitespace via CLI and programmatic API. Covers `.vuotoignore`, git integration, CI/CD pipelines, and pre-commit hooks. | [`.agents/skills/vuoto`](./.agents/skills/vuoto/SKILL.md)                             |
-| **`eslint-plugin-vuoto`** | Real-time ESLint 9+ flat config integration, all 13 whitespace rules, presets (`recommended`, `strict`, `all`, `off`), and granular AST skip options (`skipComments`, `skipStrings`, `skipTemplates`, `skipJSXText`).          | [`.agents/skills/eslint-plugin-vuoto`](./.agents/skills/eslint-plugin-vuoto/SKILL.md) |
+| Skill                     | Description                                                                                                                                                                                                                  | Location                                                                              |
+| :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| **`vuoto`**               | Guided detection, diagnosis, and cleanup of invisible, zero-width, non-breaking, and irregular Unicode whitespace via CLI and programmatic API. Covers config files, git integration, CI/CD pipelines, and pre-commit hooks. | [`.agents/skills/vuoto`](./.agents/skills/vuoto/SKILL.md)                             |
+| **`eslint-plugin-vuoto`** | Real-time ESLint 9+ flat config integration, all 13 whitespace rules, presets (`recommended`, `strict`, `all`, `off`), and granular AST skip options (`skipComments`, `skipStrings`, `skipTemplates`, `skipJSXText`).        | [`.agents/skills/eslint-plugin-vuoto`](./.agents/skills/eslint-plugin-vuoto/SKILL.md) |
 
 ### Installation
 

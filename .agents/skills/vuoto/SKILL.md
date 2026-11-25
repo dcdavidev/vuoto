@@ -1,6 +1,6 @@
 ---
 name: vuoto
-description: Guides the detection, diagnosis, and cleanup of invisible, zero-width, non-breaking, and irregular Unicode whitespace using the vuoto CLI and programmatic TypeScript API. Covers .vuotoignore, git integration, CI/CD pipelines, and pre-commit hooks.
+description: Guides the detection, diagnosis, and cleanup of invisible, zero-width, non-breaking, and irregular Unicode whitespace using the vuoto CLI and programmatic TypeScript API. Covers Vuoto config files, git integration, CI/CD pipelines, and pre-commit hooks.
 ---
 
 # Vuoto Skill
@@ -39,16 +39,16 @@ npx vuoto [options] [patterns...]
 
 ### Common Command Runbooks
 
-| Goal                                   | Command                                                     |
-| :------------------------------------- | :---------------------------------------------------------- |
-| **Check repository (dry-run)**         | `pnpm exec vuoto`                                           |
-| **Check with line/col diagnostics**    | `pnpm exec vuoto --verbose`                                 |
-| **Auto-fix all files in place**        | `pnpm exec vuoto --fix`                                     |
-| **Check specific globs or folders**    | `pnpm exec vuoto "src/**/*.ts" "docs/**/*.md"`              |
-| **Fix specific globs excluding tests** | `pnpm exec vuoto "src/**" --fix --exclude "**/fixtures/**"` |
-| **Silent CI check (exit 1 on errors)** | `pnpm exec vuoto --silent`                                  |
-| **Generate default `.vuotoignore`**    | `pnpm exec vuoto init`                                      |
-| **Force overwrite `.vuotoignore`**     | `pnpm exec vuoto init --force`                              |
+| Goal                                     | Command                                                     |
+| :--------------------------------------- | :---------------------------------------------------------- |
+| **Check repository (dry-run)**           | `pnpm exec vuoto`                                           |
+| **Check with line/col diagnostics**      | `pnpm exec vuoto --verbose`                                 |
+| **Auto-fix all files in place**          | `pnpm exec vuoto --fix`                                     |
+| **Check specific globs or folders**      | `pnpm exec vuoto "src/**/*.ts" "docs/**/*.md"`              |
+| **Fix specific globs excluding tests**   | `pnpm exec vuoto "src/**" --fix --exclude "**/fixtures/**"` |
+| **Silent CI check (exit 1 on errors)**   | `pnpm exec vuoto --silent`                                  |
+| **Generate default `vuoto.config.json`** | `pnpm exec vuoto init`                                      |
+| **Force overwrite root config**          | `pnpm exec vuoto init --force`                              |
 
 ### CLI Options Reference
 
@@ -94,30 +94,19 @@ npx vuoto [options] [patterns...]
 
 ## 4. Configuration & Ignore Rules
 
-### A. `.vuotoignore`
+### A. Cosmiconfig File
 
-Create a `.vuotoignore` file at your repository root to ignore build directories, lockfiles, minified files, or test fixtures:
+Vuoto discovers `vuoto.config.{json,jsonc,js,cjs,mjs,yaml,yml,toml}` in the workspace root. Otherwise, it checks `vuoto.{json,jsonc,js,cjs,mjs,yaml,yml,toml}` in `.config/`. Configure ignored paths with the `ignore` string array:
 
-```ignore
-# Build and package outputs
-dist/**
-build/**
-out/**
-.next/**
-
-# Dependencies
-node_modules/**
-
-# Minified and binary artifacts
-*.min.js
-*.min.css
-
-# Lockfiles
-pnpm-lock.yaml
-package-lock.json
+```json
+{
+  "ignore": ["dist/**", "build/**", "node_modules/**", "*.min.js"]
+}
 ```
 
-Generate this template quickly using:
+The repository provides [JSON](../../../schemas/vuoto.schema.json) and [YAML](../../../schemas/vuoto.schema.yaml) schemas for editor validation.
+
+Generate the default root `vuoto.config.json` using:
 
 ```bash
 pnpm exec vuoto init
@@ -247,6 +236,6 @@ pre-commit:
 
 ## 7. Troubleshooting & Best Practices
 
-- **Minified Files Causing Noise**: Minified bundles often use special characters intentionally. Ensure `*.min.js` and `dist/**` are included in `.vuotoignore` or `.gitignore`.
+- **Minified Files Causing Noise**: Minified bundles often use special characters intentionally. Ensure `*.min.js` and `dist/**` are included in the config `ignore` array or `.gitignore`.
 - **Pre-commit Hook Performance**: Use `{staged_files}` parameter in Lefthook or lint-staged rather than scanning the entire repo on every commit.
 - **Intentional Non-Breaking Spaces in Source Code**: If source files require explicit non-breaking spaces for display text, use HTML entities (`&nbsp;`) or Unicode escape sequences (`\u00A0`) instead of raw invisible characters.
