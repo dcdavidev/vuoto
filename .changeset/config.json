@@ -12,8 +12,10 @@
   "commit": false,
   "ignore": [],
   "fixed": [
-    "vuoto",
-    "eslint-plugin-vuoto"
+    [
+      "vuoto",
+      "eslint-plugin-vuoto"
+    ]
   ],
   "linked": [],
   "updateInternalDependencies": "patch"
